@@ -61,8 +61,3 @@ library(loadflux)
 ```
 
 The following examples use a Djankuat river data set (`djan17`) that comes with the package. This data contains direct water discharge and suspended sediment concentration measurements at Djankuat river (North Caucasus, Russia) in 2017.
-
-```{r}
-data(djan17)
-head(djan17)
-```

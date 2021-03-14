@@ -24,6 +24,6 @@ The main aim of this function is to split your dataset
 into hydrological events based on the local minimum method
 }
 \examples{
-data(djan17)
-output_table <- hydro_events(dataframe = djan17, q = discharge, datetime = time, window = 21)
+data(djan)
+output_table <- hydro_events(dataframe = djan, q = discharge, datetime = time, window = 21)
 }

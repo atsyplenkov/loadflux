@@ -15,6 +15,7 @@ Imports:
     dplyr (>= 1.0.0),
     zoo (>= 1.8)
 Suggests:
+    covr,
     knitr,
     rmarkdown,
     extrafont,

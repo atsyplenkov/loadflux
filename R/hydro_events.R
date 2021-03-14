@@ -11,8 +11,8 @@
 #' @return A data frame object with a hydrological events column \code{he}
 #' added
 #' @examples
-#' data(djan17)
-#' output_table <- hydro_events(dataframe = djan17, q = discharge, datetime = time, window = 21)
+#' data(djan)
+#' output_table <- hydro_events(dataframe = djan, q = discharge, datetime = time, window = 21)
 #' @export
 #' @importFrom dplyr "%>%"
 #' @importFrom zoo "na.locf"
