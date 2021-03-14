@@ -1,0 +1,68 @@
+---
+title: "start"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{start}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{R,echo=FALSE,results='hide',message=FALSE,include=FALSE, eval=TRUE}
+if (!require(devtools))
+  install.packages("devtools", repos = "http://cran.us.r-project.org")
+if (!require(dplyr))
+  install.packages("dplyr", repos = "http://cran.us.r-project.org"
+  )
+if (!require(zoo))
+  install.packages("zoo", repos = "http://cran.us.r-project.org"
+  )
+```
+
+
+The goal of overviewR is to make it easy to get an overview of a data set by displaying relevant sample information. At the moment, there are the following functions:
+
+- `hydro_events` generates a tabular overview of the sample.  The general sample plots a two-column table that provides information on an id in the left column and a the time frame on the right column. 
+
+The plots can be saved using the `ggsave()` command.
+
+We present a short step-by-step guide as well as the functions in more detail below.
+
+## Installation
+
+A stable version of `loadflux` can be directly accessed on CRAN:
+```{r, eval=FALSE}
+install.packages("loadflux", force = TRUE)
+```
+
+To install the latest development version of `loadflux` directly from [GitHub](https://github.com/atsyplenkov/loadflux) use: 
+
+```{r, message=FALSE, warning=FALSE, results = "hide", eval=FALSE}
+library(devtools)
+devtools::install_github("atsyplenkov/loadflux")
+```
+
+## Example
+
+First, load the package.
+```{r, include = FALSE, eval = FALSE}
+install.packages("loadflux")
+```
+
+```{r, message=FALSE, warning=FALSE}
+library(loadflux)
+```
+
+The following examples use a Djankuat river data set (`djan17`) that comes with the package. This data contains direct water discharge and suspended sediment concentration measurements at Djankuat river (North Caucasus, Russia) in 2017.
+
+```{r}
+data(djan17)
+head(djan17)
+```
