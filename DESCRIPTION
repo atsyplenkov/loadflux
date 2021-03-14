@@ -13,7 +13,10 @@ Depends:
     R (>= 3.5.0)
 Imports:
     dplyr (>= 1.0.0),
-    zoo (>= 1.8)
+    zoo (>= 1.8),
+    dygraphs (>= 1.1),
+    xts (>= 0.12),
+    rlang (>= 0.4.1)
 Suggests:
     covr,
     knitr,

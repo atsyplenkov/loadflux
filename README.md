@@ -8,9 +8,12 @@
 [![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://codecov.io/gh/atsyplenkov/loadflux)
 <!-- badges: end -->
 
-The goal of loadflux is to …
+The goal of `loadflux` is aimed at comprehensive analysis of the
+intra-event suspended sediment dynamics.
 
 ## Installation
+
+<!-- CRAN -->
 
 You can install the released version of loadflux from
 [CRAN](https://CRAN.R-project.org) with:
@@ -19,7 +22,10 @@ You can install the released version of loadflux from
 install.packages("loadflux")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+<!-- CRAN -->
+
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -28,36 +34,42 @@ devtools::install_github("atsyplenkov/loadflux")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to split your series into
+hydrological events:
 
 ``` r
+library(dplyr)
 library(loadflux)
 ## basic example code
+data(djan)
+
+djan %>% 
+  hydro_events(q = discharge,
+              datetime = time,
+              window = 21)
+#> # A tibble: 2,950 x 4
+#>       he time                discharge    SS
+#>    <dbl> <dttm>                  <dbl> <dbl>
+#>  1     1 2017-06-06 12:00:00     0.778  227.
+#>  2     1 2017-06-06 13:00:00     0.778   NA 
+#>  3     1 2017-06-06 14:00:00     0.778  224.
+#>  4     1 2017-06-06 15:00:00     0.778   NA 
+#>  5     1 2017-06-06 16:00:00     0.778  271.
+#>  6     1 2017-06-06 17:00:00     0.925   NA 
+#>  7     1 2017-06-06 18:00:00     1.07    NA 
+#>  8     1 2017-06-06 19:00:00     1.22   388.
+#>  9     1 2017-06-06 20:00:00     1.25    NA 
+#> 10     1 2017-06-06 21:00:00     0.933   NA 
+#> # ... with 2,940 more rows
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Then you can explore created hydrological events via `event_plot`
+function
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+plot <- djan %>% 
+  hydro_events(q = discharge,
+              datetime = time,
+              window = 21) %>%
+  event_plot(q = SS, datetime = time, he = he)
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
