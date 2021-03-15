@@ -16,14 +16,18 @@ hydro_events(dataframe, q, datetime, window = 1)
 \item{window}{Indicate time period to search for a local minimum (in hours)}
 }
 \value{
-A data frame object with a hydrological events column \code{he}
+A data frame with class \code{tbl_df} with a hydrological events column \code{he}
 added
 }
 \description{
-The main aim of this function is to split your dataset
-into hydrological events based on the local minimum method
+This function demarcates hydrological events. Start and
+endpoint of each event are identified by Local Minimum method (\emph{Sloto
+and Crouse, 1996}) within the specified time window.
 }
 \examples{
 data(djan)
 output_table <- hydro_events(dataframe = djan, q = discharge, datetime = time, window = 21)
+}
+\references{
+Sloto, R.A., Crouse, M.Y., 1996. Hysep: a computer program for streamflow hydrograph separation and analysis, \emph{U.S. Geological Survey Water-Resources Investigations Report} 96-4040.
 }

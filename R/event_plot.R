@@ -1,6 +1,6 @@
 #' @title Visualize hydrological events interactively
 #'
-#' @description This function creates an interactive plot using `dygraphs`
+#' @description This function creates an interactive plot using \code{dygraphs}
 #' package
 #'
 #' @param dataframe A data set object
@@ -13,7 +13,9 @@
 #' @param y2label Second Y-axis label
 #'
 #'
-#' @return Interactive dygraph plot
+#' @return The `event_plot` function returns object of class "dygraphs",
+#' "htmlwidget"
+#'
 #' @examples
 #' library(dplyr)
 #' data(djan)
@@ -49,8 +51,8 @@ event_plot <- function(dataframe,
                  order.by = dplyr::pull(., !!datetime)) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
-        dygraphs::dyAxis("y", label = ylabel) %>%
-        dygraphs::dyOptions(useDataTimezone = TRUE)
+        dygraphs::dyAxis("y", label = ylabel) #%>%
+        #dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
 
@@ -79,8 +81,8 @@ event_plot <- function(dataframe,
                          label = ylabel) %>%
         dygraphs::dyAxis("y2",
                          label = y2label,
-                         independentTicks = TRUE) %>%
-        dygraphs::dyOptions(useDataTimezone = TRUE)
+                         independentTicks = TRUE) #%>%
+        #dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
 
@@ -109,8 +111,8 @@ event_plot <- function(dataframe,
                  order.by = dplyr::pull(., !!datetime)) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
-        dygraphs::dyAxis("y", label = ylabel) %>%
-        dygraphs::dyOptions(useDataTimezone = TRUE)
+        dygraphs::dyAxis("y", label = ylabel) #%>%
+        #dygraphs::dyOptions(useDataTimezone = TRUE)
 
       for (i in 1:nrow(db_he)) {
         plot <- plot %>% dygraphs::dyShading(from = db_he$start[i],
@@ -153,8 +155,8 @@ event_plot <- function(dataframe,
                          label = ylabel) %>%
         dygraphs::dyAxis("y2",
                          label = y2label,
-                         independentTicks = TRUE) %>%
-        dygraphs::dyOptions(useDataTimezone = TRUE)
+                         independentTicks = TRUE) #%>%
+        #dygraphs::dyOptions(useDataTimezone = TRUE)
 
       for (i in 1:nrow(db_he)) {
         plot <- plot %>% dygraphs::dyShading(from = db_he$start[i],

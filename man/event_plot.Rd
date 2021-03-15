@@ -31,10 +31,11 @@ second axis)}
 \item{y2label}{Second Y-axis label}
 }
 \value{
-Interactive dygraph plot
+The `event_plot` function returns object of class "dygraphs",
+"htmlwidget"
 }
 \description{
-This function creates an interactive plot using `dygraphs`
+This function creates an interactive plot using \code{dygraphs}
 package
 }
 \examples{

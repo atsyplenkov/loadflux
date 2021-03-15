@@ -1,21 +1,25 @@
 #' @title Splitting to hydrological events
 #'
-#' @description The main aim of this function is to split your dataset
-#' into hydrological events based on the local minimum method
+#' @description This function demarcates hydrological events. Start and
+#' endpoint of each event are identified by Local Minimum method (\emph{Sloto
+#' and Crouse, 1996}) within the specified time window.
 #'
 #' @param dataframe A data set object
 #' @param q Water discharge variable (or water stage)
 #' @param datetime Datetime variable (column in POSIXct format)
 #' @param window Indicate time period to search for a local minimum (in hours)
 #'
-#' @return A data frame object with a hydrological events column \code{he}
+#' @return A data frame with class \code{tbl_df} with a hydrological events column \code{he}
 #' added
+#'
+#' @references Sloto, R.A., Crouse, M.Y., 1996. Hysep: a computer program for streamflow hydrograph separation and analysis, \emph{U.S. Geological Survey Water-Resources Investigations Report} 96-4040.
+#'
 #' @examples
 #' data(djan)
 #' output_table <- hydro_events(dataframe = djan, q = discharge, datetime = time, window = 21)
 #' @export
-#' @importFrom dplyr "%>%"
-#' @importFrom zoo "na.locf"
+#' @importFrom dplyr "%>%" everything select as_tibble
+#' @importFrom zoo na.locf na.approx
 
 hydro_events <- function(dataframe,
                          q,

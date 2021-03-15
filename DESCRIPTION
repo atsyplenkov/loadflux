@@ -1,22 +1,34 @@
 Type: Package
 Package: loadflux
-Title: Explore itra-event suspended sediment dynamics
+Title: Explore Itra-Event Suspended Sediment Dynamics
 Version: 0.0.1
 Authors@R: c(
-    person("Anatoly", "Tsyplenkov", email = "atsyplenkov@gmail.com", role = c("cre","aut")))
+    person(given = "Anatoly",
+    family = "Tsyplenkov",
+    email = "atsyplenkov@gmail.com",
+    role = c("cre","aut"),
+    comment = c(ORCID = "0000-0003-4144-8402")))
 Description: A collection of functions created to study water discharge (Q) and
-    suspended sediment concentration (SSC) realtionship.
+    suspended sediment concentration (SSC) relationship.
 License: GPL-3
 URL: https://github.com/atsyplenkov/loadflux
 BugReports: https://github.com/atsyplenkov/loadflux/issues
 Depends:
     R (>= 3.5.0)
 Imports:
+    rlang (>= 0.2.0),
+    tibble (>= 1.4.1),
+    tsibble (>= 0.9.0),
+    ggplot2 (>= 3.0.0),
     dplyr (>= 1.0.0),
+    tidyr (>= 0.8.3),
     zoo (>= 1.8),
     dygraphs (>= 1.1),
     xts (>= 0.12),
-    rlang (>= 0.4.1)
+    ggpubr (>= 0.4.0),
+    lubridate,
+    utils,
+    lifecycle
 Suggests:
     covr,
     knitr,
