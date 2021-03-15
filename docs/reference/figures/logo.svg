@@ -11,7 +11,7 @@
    width="273.37698"
    height="315.66855"
    id="svg29"
-   sodipodi:docname="loadflux.svg"
+   sodipodi:docname="logo.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <metadata
      id="metadata35">
@@ -21,7 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -52,6 +52,21 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0" />
+  <path
+     sodipodi:type="star"
+     style="fill:#ffffff;stroke:#000000;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+     id="path37"
+     sodipodi:sides="6"
+     sodipodi:cx="136.6885"
+     sodipodi:cy="157.83428"
+     sodipodi:r1="157.25693"
+     sodipodi:r2="136.18851"
+     sodipodi:arg1="2.6179939"
+     sodipodi:arg2="3.1415927"
+     inkscape:flatsided="true"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="M 0.50001122,236.46274 0.50001468,79.205808 136.68851,0.5773468 272.877,79.205814 l 0,157.256926 -136.1885,78.62846 z" />
   <g
      fill-opacity="9.99899e-05"
      fill="#ffffff"
@@ -98,19 +113,4 @@
          id="path20" />
     </g>
   </g>
-  <path
-     sodipodi:type="star"
-     style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-     id="path37"
-     sodipodi:sides="6"
-     sodipodi:cx="136.6885"
-     sodipodi:cy="157.83428"
-     sodipodi:r1="157.25693"
-     sodipodi:r2="136.18851"
-     sodipodi:arg1="2.6179939"
-     sodipodi:arg2="3.1415927"
-     inkscape:flatsided="true"
-     inkscape:rounded="0"
-     inkscape:randomized="0"
-     d="M 0.50001122,236.46274 0.50001468,79.205808 136.68851,0.5773468 272.877,79.205814 l 0,157.256926 -136.1885,78.62846 z" />
 </svg>
