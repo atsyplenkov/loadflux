@@ -101,7 +101,7 @@ calculation:
 -   `HImid` - Hysteresis Index from [*Lawler et al.,
     2006*](https://www.sciencedirect.com/science/article/abs/pii/S0048969705005711)
 -   `HIaich` - Hysteresis Index from [*Aich et al.,
-    2014*](http://linkinghub.elsevier.com/retrieve/pii/S0341816214001969)
+    2014*](https://www.sciencedirect.com/science/article/abs/pii/S0341816214001969)
 
 To calculate a hysteresis index for your event run as follows:
 
