@@ -5,7 +5,8 @@
 
 <!-- badges: start -->
 
-[![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://codecov.io/gh/atsyplenkov/loadflux)
+[![Codecov test
+coverage](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg)](https://codecov.io/gh/atsyplenkov/loadflux?branch=master)
 <!-- badges: end -->
 
 The `loadflux` package is aimed at comprehensive analysis of the
