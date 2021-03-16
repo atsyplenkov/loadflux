@@ -1,6 +1,6 @@
 Type: Package
 Package: loadflux
-Title: Explore Itra-Event Suspended Sediment Dynamics
+Title: Explore Intra-Event Suspended Sediment Dynamics
 Version: 0.0.1
 Authors@R: c(
     person(given = "Anatoly",
