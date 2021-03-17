@@ -9,8 +9,6 @@ feat_event(x)
 }
 \arguments{
 \item{x}{A vector to extract features from.}
-
-\item{...}{Further arguments passed to other functions.}
 }
 \description{
 You can calculate a series of summary statistics (features) of a given

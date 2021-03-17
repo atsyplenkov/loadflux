@@ -33,6 +33,8 @@ Imports:
     lifecycle
 Suggests:
     covr,
+    feasts,
+    brolgar,
     knitr,
     rmarkdown,
     extrafont,

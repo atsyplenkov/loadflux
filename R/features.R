@@ -8,7 +8,6 @@
 #'
 #'
 #' @param x A vector to extract features from.
-#' @param ... Further arguments passed to other functions.
 #' @name loadflux-features
 #' @examples
 #'
