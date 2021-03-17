@@ -1,15 +1,35 @@
-#' @title Cross-sectional data for countries
+#' @title Djankuat river water discharge and suspended sediment
+#' concentration measurements
 #'
 #' @docType data
+#'
+#' @description Direct hydrological measurements at Djankuat river
+#' (Northen Caucasus) in 2017th ablation season. See \emph{Tsyplenkov et al.}
+#' (2020) and \emph{Rets et al.} (2019) for details.
 #'
 #' @usage data(djan)
 #'
 #' @format An object of class `"tibble"`
 #'
-#' @references Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. Journal of Soils and Sediments 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z
+#' @references Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020.
+#' Suspended sediment budget and intra-event sediment dynamics of a
+#' small glaciated mountainous catchment in the Northern Caucasus.
+#' Journal of Soils and Sediments 20 (8): 3266–3281 DOI:
+#' 10.1007/s11368-020-02633-z
+#'
+#' @references Rets EP, Popovnin VV, Toropov PA, Smirnov AM,
+#' Tokarev IV, Chizhova JN, Budantseva NA, Vasil’chuk YK, Kireeva MB,
+#' Ekaykin AA, et al. 2019. Djankuat glacier station in the North
+#' Caucasus, Russia: a database of glaciological, hydrological, and
+#' meteorological observations and stable isotope sampling results
+#' during 2007–2017. Earth System Science Data 11 (3): 1463–1481 DOI:
+#' 10.5194/essd-11-1463-2019
+
+#'
 #' @keywords datasets
 #' @examples
 #'
 #' data(djan)
 #' head(djan)
+#' @importFrom utils head
 "djan"

@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 
 <!-- badges: start -->
-[![Codecov test coverage](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg)](https://codecov.io/gh/atsyplenkov/loadflux?branch=master)
+[![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://codecov.io/gh/atsyplenkov/loadflux)
 <!-- badges: end -->
 
 The `loadflux` package is build for the comprehensive analysis of the intra-event suspended sediment dynamics.
