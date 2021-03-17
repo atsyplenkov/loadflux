@@ -1,0 +1,58 @@
+---
+title: "loadflux"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{loadflux}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Hydrological Events demarcation
+
+This is a basic example which shows you how to split your series into hydrological events:
+
+```{r example, message=FALSE, warning=FALSE}
+library(dplyr)
+library(loadflux)
+data(djan)
+
+df <- djan %>% 
+  hydro_events(q = discharge, # Water discharge
+               datetime = time, # POSISct argument
+               window = 21) # Search window
+
+head(df)
+```
+
+### Plots
+Then you can explore visually hydrological events via `event_plot` function. This function creates an interactive [`dygraph`](https://rstudio.github.io/dygraphs/) object which is rendered as `html`. Every <span style="color:coral;">coral</span> stripe stands for one hydrological event.
+
+```{r interactive_plot, message=FALSE, warning=FALSE, out.width = "90%", fig.align='center'}
+library(dygraphs)
+
+df %>%
+  event_plot(q = discharge, # Y-axis
+             datetime = time, #X-axis
+             he = he) # Hydrological events
+
+```
+
+You can even explore both *Water Discharge* `Q` and *Suspended Sedimnet Concentration* `SSC` temporal variability:
+
+```{r interactive_plot2, message=FALSE, warning=FALSE, out.width = "90%", fig.align='center'}
+library(dygraphs)
+
+df %>%
+  event_plot(q = discharge, # Y-axis
+             ssc = SS,
+             datetime = time, #X-axis
+             he = he) # Hydrological events
+
+```

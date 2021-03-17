@@ -9,7 +9,7 @@
 coverage](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg)](https://codecov.io/gh/atsyplenkov/loadflux?branch=master)
 <!-- badges: end -->
 
-The `loadflux` package is aimed at comprehensive analysis of the
+The `loadflux` package is build for the comprehensive analysis of the
 intra-event suspended sediment dynamics.
 
 ## Installation
