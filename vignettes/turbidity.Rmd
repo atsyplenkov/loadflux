@@ -83,7 +83,7 @@ df_ts %>%
 
 ```
 
-Or with the hekp of `brolgar` and `feasts` packages we can calculate turbidity statistics, autocorrelation and spectral functions:
+Or with the help of `brolgar` and `feasts` packages we can calculate turbidity statistics, autocorrelation and spectral functions:
 
 ```{r stats}
 library(brolgar)
