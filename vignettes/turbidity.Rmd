@@ -17,7 +17,9 @@ knitr::opts_chunk$set(
 This is an example workflow of how to perform basic turbidity analysis with `loadflux` package and `tidyverse` ecosystem.
 
 ```{r setup, warning=FALSE, message=FALSE}
-library(tidyverse)
+library(dplyr)
+library(purrr)
+library(tidyr)
 library(tsibble)
 library(loadflux)
 ```
