@@ -26,6 +26,8 @@ Imports:
     dygraphs (>= 1.1),
     xts (>= 0.12),
     ggpubr (>= 0.4.0),
+    fabletools,
+    stats,
     lubridate,
     utils,
     lifecycle

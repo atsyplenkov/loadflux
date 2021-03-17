@@ -1,0 +1,98 @@
+---
+title: "Exploring turbidity fluctuations"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{turbidity}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This is an example workflow of how to perform basic turbidity analysis with `loadflux` package and `tidyverse` ecosystem.
+
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(tsibble)
+library(loadflux)
+```
+
+### Hydrological Events
+First, we need to demarcate hydrological events
+
+```{r events, out.width = "90%", fig.align='center'}
+data(djanturb)
+df <- hydro_events(dataframe = djanturb,
+                   q = discharge,
+                   datetime = time,
+                   window = 21)
+
+df %>% 
+  event_plot(q = discharge,
+             datetime = time,
+             he = he,
+             ssc = ntu,
+             y2label = "Turbidity")
+
+```
+
+### Turbidity Index
+Then we can calculate Turbidity Index `TI` for every hydrological event
+
+```{r ti_index}
+
+TI_index <- df %>% 
+  group_by(he) %>% 
+  nest() %>% 
+  mutate(TI = map_dbl(data, ~TI(.x, ntu, time))) %>% 
+  select(-data) %>% 
+  ungroup()
+
+TI_index
+
+```
+
+### Hydrological events parameters
+
+To summarize the hydrological events parameters an approach from `features` package can be used. For this purpose we need to transform our dataframe into `tsibble` object:
+
+```{r to_tsibble}
+library(tsibble)
+
+df_ts <- df %>% 
+  as_tsibble(key = he,
+             index = time)
+
+df_ts
+```
+
+Then we can calculate start, end and length of the every hydrological event:
+```{r feat_ev}
+library(feasts)
+
+df_ts %>% 
+  features(time,
+           feat_event)
+
+```
+
+Or with the hekp of `brolgar` and `feasts` packages we can calculate turbidity statistics, autocorrelation and spectral functions:
+
+```{r stats}
+library(brolgar)
+library(feasts)
+
+df_ts %>% 
+  features(ntu, feat_five_num)
+
+df_ts %>% 
+  features(ntu, c(feat_spectral,
+                  feat_acf))
+
+```
+

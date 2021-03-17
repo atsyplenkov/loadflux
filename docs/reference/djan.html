@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cross-sectional data for countries — djan • loadflux</title>
+<title>Djankuat river water discharge and suspended sediment
+concentration measurements — djan • loadflux</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +47,11 @@
 
 
 
-<meta property="og:title" content="Cross-sectional data for countries — djan" />
-<meta property="og:description" content="Cross-sectional data for countries" />
+<meta property="og:title" content="Djankuat river water discharge and suspended sediment
+concentration measurements — djan" />
+<meta property="og:description" content="Direct hydrological measurements at Djankuat river
+(Northen Caucasus) in 2017th ablation season. See Tsyplenkov et al.
+(2020) and Rets et al. (2019) for details." />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -116,7 +120,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/start.html">start</a>
+      <a href="../articles/turbidity.html">Exploring turbidity fluctuations</a>
     </li>
   </ul>
 </li>
@@ -144,13 +148,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Cross-sectional data for countries</h1>
+    <h1>Djankuat river water discharge and suspended sediment
+concentration measurements</h1>
     <small class="dont-index">Source: <a href='https://github.com/atsyplenkov/loadflux/blob/master/R/djan.R'><code>R/djan.R</code></a></small>
     <div class="hidden name"><code>djan.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Cross-sectional data for countries</p>
+    <p>Direct hydrological measurements at Djankuat river
+(Northen Caucasus) in 2017th ablation season. See <em>Tsyplenkov et al.</em>
+(2020) and <em>Rets et al.</em> (2019) for details.</p>
     </div>
 
     <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>djan</span><span class='op'>)</span></pre>
@@ -161,19 +168,32 @@
     <p>An object of class `"tibble"`</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. Journal of Soils and Sediments 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z</p>
+    <p>Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020.
+Suspended sediment budget and intra-event sediment dynamics of a
+small glaciated mountainous catchment in the Northern Caucasus.
+Journal of Soils and Sediments 20 (8): 3266–3281 DOI:
+10.1007/s11368-020-02633-z</p>
+<p>Rets EP, Popovnin VV, Toropov PA, Smirnov AM,
+Tokarev IV, Chizhova JN, Budantseva NA, Vasil’chuk YK, Kireeva MB,
+Ekaykin AA, et al. 2019. Djankuat glacier station in the North
+Caucasus, Russia: a database of glaciological, hydrological, and
+meteorological observations and stable isotope sampling results
+during 2007–2017. Earth System Science Data 11 (3): 1463–1481 DOI:
+10.5194/essd-11-1463-2019</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>djan</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>djan</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;                  time discharge       SS
-#&gt; 1 2017-06-06 12:00:00 0.7783000 226.6072
-#&gt; 2 2017-06-06 13:00:00 0.7783000       NA
-#&gt; 3 2017-06-06 14:00:00 0.7783000 223.9959
-#&gt; 4 2017-06-06 15:00:00 0.7783000       NA
-#&gt; 5 2017-06-06 16:00:00 0.7783000 271.4663
-#&gt; 6 2017-06-06 17:00:00 0.9252692       NA</div></pre>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 x 3</span><span>
+#&gt;   time                discharge    SS
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dttm&gt;</span><span>                  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 2017-06-06 </span><span style='color: #949494;'>12:00:00</span><span>     0.778  227.
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 2017-06-06 </span><span style='color: #949494;'>13:00:00</span><span>     0.778   </span><span style='color: #BB0000;'>NA</span><span> 
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> 2017-06-06 </span><span style='color: #949494;'>14:00:00</span><span>     0.778  224.
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> 2017-06-06 </span><span style='color: #949494;'>15:00:00</span><span>     0.778   </span><span style='color: #BB0000;'>NA</span><span> 
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> 2017-06-06 </span><span style='color: #949494;'>16:00:00</span><span>     0.778  271.
+#&gt; </span><span style='color: #BCBCBC;'>6</span><span> 2017-06-06 </span><span style='color: #949494;'>17:00:00</span><span>     0.925   </span><span style='color: #BB0000;'>NA</span><span> </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
