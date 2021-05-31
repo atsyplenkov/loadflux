@@ -29,12 +29,12 @@
 #' @importFrom dplyr "%>%"
 
 event_plot <- function(dataframe,
-                       q,
-                       datetime,
-                       he,
-                       ssc,
-                       ylabel = "Water discharge",
-                       y2label = "Suspended Sediment Concentration"){
+                        q,
+                        datetime,
+                        he,
+                        ssc,
+                        ylabel = "Water discharge",
+                        y2label = "Suspended Sediment Concentration"){
 
   if (missing(he)) {
     if (missing(ssc)) {
@@ -52,7 +52,7 @@ event_plot <- function(dataframe,
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
         dygraphs::dyAxis("y", label = ylabel) #%>%
-        #dygraphs::dyOptions(useDataTimezone = TRUE)
+      #dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
 
@@ -82,7 +82,7 @@ event_plot <- function(dataframe,
         dygraphs::dyAxis("y2",
                          label = y2label,
                          independentTicks = TRUE) #%>%
-        #dygraphs::dyOptions(useDataTimezone = TRUE)
+      #dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
 
@@ -112,9 +112,11 @@ event_plot <- function(dataframe,
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
         dygraphs::dyAxis("y", label = ylabel) #%>%
-        #dygraphs::dyOptions(useDataTimezone = TRUE)
+      #dygraphs::dyOptions(useDataTimezone = TRUE)
 
-      for (i in 1:nrow(db_he)) {
+      rows_to_plot <- (1:nrow(db_he))[seq(1, nrow(db_he), 2)]
+
+      for (i in rows_to_plot) {
         plot <- plot %>% dygraphs::dyShading(from = db_he$start[i],
                                              to = db_he$end[i],
                                              color = "#FFE6E6")
@@ -156,9 +158,11 @@ event_plot <- function(dataframe,
         dygraphs::dyAxis("y2",
                          label = y2label,
                          independentTicks = TRUE) #%>%
-        #dygraphs::dyOptions(useDataTimezone = TRUE)
+      #dygraphs::dyOptions(useDataTimezone = TRUE)
 
-      for (i in 1:nrow(db_he)) {
+      rows_to_plot <- (1:nrow(db_he))[seq(1, nrow(db_he), 2)]
+
+      for (i in rows_to_plot) {
         plot <- plot %>% dygraphs::dyShading(from = db_he$start[i],
                                              to = db_he$end[i],
                                              color = "#FFE6E6")
