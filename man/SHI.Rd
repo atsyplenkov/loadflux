@@ -4,14 +4,16 @@
 \alias{SHI}
 \title{Calculate Simple Hysteresis Index (SHI)}
 \usage{
-SHI(dataframe, q, ssc)
+SHI(dataframe, q, ssc, .warn = T)
 }
 \arguments{
-\item{dataframe}{A data set object}
+\item{dataframe}{A data set object.}
 
-\item{q}{Water discharge variable}
+\item{q}{numeric, water discharge variable.}
 
-\item{ssc}{Suspended sediment concentration variable}
+\item{ssc}{numeric, suspended sediment concentration variable.}
+
+\item{.warn}{logical, indicating if the warning message should be displayed.}
 }
 \value{
 A numeric variable
@@ -33,7 +35,7 @@ output_table \%>\%
   SHI(q = discharge, ssc = SS)
 }
 \references{
-Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. \emph{Journal of Soils and Sediments} 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z
+Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. Journal of Soils and Sediments 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z
 }
 \author{
 Matthias Vanmaercke and Anatoly Tsyplenkov

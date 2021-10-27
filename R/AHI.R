@@ -2,11 +2,15 @@
 #'
 #' @description This function calculates Hysteresis Index proposed by \emph{Aich et al.} (2014)
 #'
-#' @param dataframe A data set object
-#' @param q Water discharge variable
-#' @param ssc Suspended sediment concentration variable
+#' @param dataframe A data set object.
+#' @param q numeric, water discharge variable.
+#' @param ssc numeric, suspended sediment concentration variable.
+#' @param .warn logical, indicating if the warning message should be displayed.
 #'
 #' @return a numeric value either NA
+#'
+#' @references Aich V, Zimmermann A, Elsenbeer H. 2014. Quantification and interpretation of suspended-sediment discharge hysteresis patterns: How much data do we need? CATENA 122: 120–129 DOI: 10.1016/j.catena.2014.06.020
+#'
 #' @export
 #'
 #' @importFrom dplyr "%>%" enquo select pull filter
@@ -16,8 +20,18 @@
 #' @example man/examples/AHI_example.R
 #'
 
-AHI <- function(dataframe, q, ssc) {
+AHI <- function(dataframe, q, ssc, .warn = TRUE) {
 
+  # Some check
+  stopifnot("Input must be data frame" =
+              is.data.frame(dataframe))
+
+  if (any(is.na(dataframe)) & .warn) {
+    warning("NAs dropped",
+            call. = F)
+  }
+
+  # Some tidyeval
   q <- dplyr::enquo(q)
   ssc <- dplyr::enquo(ssc)
 
@@ -25,10 +39,16 @@ AHI <- function(dataframe, q, ssc) {
     tidyr::drop_na(!!q, !!ssc) %>%
     dplyr::select(q = !!q, ssc = !!ssc)
 
+  # Additional checks
+  stopifnot("Discharge (q) must be numeric" =
+              is.numeric(df$q))
+  stopifnot("Suspended sediment concentration (ssc) must be numeric" =
+              is.numeric(df$ssc))
+
   # Normalize dataframe
   tt <- df %>%
-    dplyr::mutate(x = q/max(q),
-                  y = ssc/max(ssc))
+    dplyr::mutate(x = q / max(q),
+                  y = ssc / max(ssc))
 
   # Connect max Q and last sediment sample
   min_max <- tt %>%
@@ -47,7 +67,8 @@ AHI <- function(dataframe, q, ssc) {
   # Find the maximum distance to the rising and
   # falling limbs
   euclid_min_d <- function(line, pts){
-    d <- vector(mode = "integer", length = nrow(pts))
+    d <- vector(mode = "integer",
+                length = nrow(pts))
     for(i in 1:nrow(pts)){
       d[i] = min(( abs(abs(pts$x[i]) - abs(line$x))^2 + abs(abs(pts$y[i]) - abs(line$y))^2 )^(.5))
     }

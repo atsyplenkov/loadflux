@@ -4,14 +4,16 @@
 \alias{AHI}
 \title{Calculate Aich's Hysteresis Index}
 \usage{
-AHI(dataframe, q, ssc)
+AHI(dataframe, q, ssc, .warn = TRUE)
 }
 \arguments{
-\item{dataframe}{A data set object}
+\item{dataframe}{A data set object.}
 
-\item{q}{Water discharge variable}
+\item{q}{numeric, water discharge variable.}
 
-\item{ssc}{Suspended sediment concentration variable}
+\item{ssc}{numeric, suspended sediment concentration variable.}
+
+\item{.warn}{logical, indicating if the warning message should be displayed.}
 }
 \value{
 a numeric value either NA
@@ -30,4 +32,7 @@ output_table <- hydro_events(dataframe = djan,
 output_table \%>\%
   filter(he == 2) \%>\%
   AHI(q = discharge, ssc = SS)
+}
+\references{
+Aich V, Zimmermann A, Elsenbeer H. 2014. Quantification and interpretation of suspended-sediment discharge hysteresis patterns: How much data do we need? CATENA 122: 120–129 DOI: 10.1016/j.catena.2014.06.020
 }
