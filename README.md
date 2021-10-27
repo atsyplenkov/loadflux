@@ -82,13 +82,13 @@ calculation:
 
 -   `SHI` - Simple Hystersis Index from [*Tsyplenkov et al.,
     2020*](https://link.springer.com/article/10.1007/s11368-020-02633-z)
+-   `AHI` - Aich’s Hysteresis Index from [*Aich et al.,
+    2014*](https://www.sciencedirect.com/science/article/abs/pii/S0341816214001969)
 
 **Pending**
 
 -   `HImid` - Hysteresis Index from [*Lawler et al.,
     2006*](https://www.sciencedirect.com/science/article/abs/pii/S0048969705005711)
--   `HIaich` - Hysteresis Index from [*Aich et al.,
-    2014*](https://www.sciencedirect.com/science/article/abs/pii/S0341816214001969)
 
 To calculate a hysteresis index for your event run as follows:
 
