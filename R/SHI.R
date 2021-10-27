@@ -4,7 +4,7 @@
 #' following the description from \emph{Tsyplenkov et al.} (2020)
 #'
 #' @param dataframe A data set object
-#' @param q Water discharge variable (or water stage)
+#' @param q Water discharge variable
 #' @param ssc Suspended sediment concentration variable
 #'
 #' @return A numeric variable
@@ -13,17 +13,7 @@
 #'
 #' @references Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. \emph{Journal of Soils and Sediments} 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z
 #'
-#' @examples
-#' library(dplyr)
-#' data(djan)
-#' output_table <- hydro_events(dataframe = djan,
-#'  q = discharge,
-#'  datetime = time,
-#'  window = 21)
-#'
-#' output_table %>%
-#'  filter(he == 2) %>%
-#'  SHI(q = discharge, ssc = SS)
+#' @example man/examples/SHI_example.R
 #'
 #' @export
 #' @importFrom dplyr "%>%" enquo select

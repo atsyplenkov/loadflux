@@ -9,7 +9,7 @@ SHI(dataframe, q, ssc)
 \arguments{
 \item{dataframe}{A data set object}
 
-\item{q}{Water discharge variable (or water stage)}
+\item{q}{Water discharge variable}
 
 \item{ssc}{Suspended sediment concentration variable}
 }
@@ -24,14 +24,13 @@ following the description from \emph{Tsyplenkov et al.} (2020)
 library(dplyr)
 data(djan)
 output_table <- hydro_events(dataframe = djan,
-q = discharge,
-datetime = time,
-window = 21)
+                             q = discharge,
+                             datetime = time,
+                             window = 21)
 
 output_table \%>\%
-filter(he == 2) \%>\%
-SHI(q = discharge, ssc = SS)
-
+  filter(he == 2) \%>\%
+  SHI(q = discharge, ssc = SS)
 }
 \references{
 Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. \emph{Journal of Soils and Sediments} 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z

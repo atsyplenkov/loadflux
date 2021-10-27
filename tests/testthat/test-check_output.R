@@ -1,5 +1,6 @@
 library(testthat)
 library(loadflux)
+library(dplyr)
 
 test_that("check output classes", {
 
@@ -21,7 +22,24 @@ test_that("check output classes", {
     TI(ssc = discharge,
        datetime = time)
 
-  expect_s3_class(output_plot, c("dygraphs", "htmlwidget"))
+  output_ahi <- djan %>%
+    hydro_events(q = discharge,
+                 datetime = time,
+                 window = 21) %>%
+    dplyr::filter(he == 2) %>%
+    AHI(q = discharge,
+        ssc = SS)
+
+  output_shi <- djan %>%
+    hydro_events(q = discharge,
+                 datetime = time,
+                 window = 21) %>%
+    dplyr::filter(he == 2) %>%
+    SHI(q = discharge,
+        ssc = SS)
+
   expect_s3_class(output_plot, c("dygraphs", "htmlwidget"))
   expect_type(output_ti, "double")
+  expect_type(output_shi, "double")
+  expect_type(output_ahi, "double")
 })
