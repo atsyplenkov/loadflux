@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://codecov.io/gh/atsyplenkov/loadflux)
+[![R-CMD-check](https://github.com/atsyplenkov/loadflux/workflows/R-CMD-check/badge.svg)](https://github.com/atsyplenkov/loadflux/actions)
 <!-- badges: end -->
 
 The `loadflux` package is build for the comprehensive analysis of the
@@ -58,21 +59,7 @@ head(df)
 
 ### Plots
 
-Then you can explore created hydrological events via `event_plot`
-function. This function creates an interactive
-[`dygraph`](https://rstudio.github.io/dygraphs/) object which is
-rendered as `html`.
-
-``` r
-library(dygraphs)
-
-df %>%
-  event_plot(q = SS, datetime = time, he = he)
-```
-
-<img src="man/figures/README-interactive_plot-1.png" width="50%" style="display: block; margin: auto;" />
-
-And then plot the hysteresis loop by running `hysteresis_plot`
+Then you can plot the hysteresis loop by running `hysteresis_plot`
 
 ``` r
 library(ggplot2)

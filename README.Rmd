@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://codecov.io/gh/atsyplenkov/loadflux)
+[![R-CMD-check](https://github.com/atsyplenkov/loadflux/workflows/R-CMD-check/badge.svg)](https://github.com/atsyplenkov/loadflux/actions)
 <!-- badges: end -->
 
 The `loadflux` package is build for the comprehensive analysis of the intra-event suspended sediment dynamics.
@@ -57,18 +58,7 @@ head(df)
 
 ### Plots
 
-Then you can explore created hydrological events via `event_plot` function. This function creates an interactive [`dygraph`](https://rstudio.github.io/dygraphs/) object which is rendered as `html`.
-
-```{r interactive_plot, message=FALSE, warning=FALSE, out.width = "50%", fig.align='center'}
-library(dygraphs)
-
-df %>%
-  event_plot(q = SS, datetime = time, he = he)
-
-```
-
-
-And then plot the hysteresis loop by running `hysteresis_plot`
+Then you can  plot the hysteresis loop by running `hysteresis_plot`
 
 ```{r hysteresis_plot, message=FALSE, warning=FALSE, out.width = "50%", fig.align='center'}
 library(ggplot2)
