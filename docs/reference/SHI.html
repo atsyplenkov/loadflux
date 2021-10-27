@@ -91,7 +91,7 @@ following the description from Tsyplenkov et al. (2020)" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">loadflux</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -155,22 +155,26 @@ following the description from Tsyplenkov et al. (2020)" />
 following the description from <em>Tsyplenkov et al.</em> (2020)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>SHI</span><span class='op'>(</span><span class='va'>dataframe</span>, <span class='va'>q</span>, <span class='va'>ssc</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>SHI</span><span class='op'>(</span><span class='va'>dataframe</span>, <span class='va'>q</span>, <span class='va'>ssc</span>, .warn <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>dataframe</th>
-      <td><p>A data set object</p></td>
+      <td><p>A data set object.</p></td>
     </tr>
     <tr>
       <th>q</th>
-      <td><p>Water discharge variable</p></td>
+      <td><p>numeric, water discharge variable.</p></td>
     </tr>
     <tr>
       <th>ssc</th>
-      <td><p>Suspended sediment concentration variable</p></td>
+      <td><p>numeric, suspended sediment concentration variable.</p></td>
+    </tr>
+    <tr>
+      <th>.warn</th>
+      <td><p>logical, indicating if the warning message should be displayed.</p></td>
     </tr>
     </table>
 
@@ -179,7 +183,7 @@ following the description from <em>Tsyplenkov et al.</em> (2020)</p>
     <p>A numeric variable</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. <em>Journal of Soils and Sediments</em> 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z</p>
+    <p>Tsyplenkov A, Vanmaercke M, Golosov V, Chalov S. 2020. Suspended sediment budget and intra-event sediment dynamics of a small glaciated mountainous catchment in the Northern Caucasus. Journal of Soils and Sediments 20 (8): 3266–3281 DOI: 10.1007/s11368-020-02633-z</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Matthias Vanmaercke and Anatoly Tsyplenkov</p>
@@ -195,7 +199,7 @@ following the description from <em>Tsyplenkov et al.</em> (2020)</p>
 <span class='va'>output_table</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>he</span> <span class='op'>==</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>SHI</span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>discharge</span>, ssc <span class='op'>=</span> <span class='va'>SS</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 0.2473604</div></pre>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: NAs dropped</span></div><div class='output co'>#&gt; [1] 0.2473604</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
