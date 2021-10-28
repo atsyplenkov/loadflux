@@ -26,7 +26,8 @@
 #'   event_plot(q = SS, datetime = time, he = he)
 #'
 #' @export
-#' @importFrom dplyr "%>%"
+#' @importFrom dplyr "%>%" enquo select pull filter
+#' @import dygraphs
 
 event_plot <- function(dataframe,
                         q,
@@ -35,6 +36,8 @@ event_plot <- function(dataframe,
                         ssc,
                         ylabel = "Water discharge",
                         y2label = "Suspended Sediment Concentration"){
+
+  . = NULL
 
   if (missing(he)) {
     if (missing(ssc)) {

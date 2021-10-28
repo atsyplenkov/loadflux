@@ -28,7 +28,8 @@
 #' hysteresis_plot(q = discharge, ssc = SS)
 #'
 #' @export
-#' @importFrom dplyr "%>%"
+#' @importFrom dplyr "%>%" enquo select pull filter row_number
+#' @import ggplot2
 
 hysteresis_plot <- function(dataframe,
                             datetime,
