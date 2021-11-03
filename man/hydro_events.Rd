@@ -16,7 +16,8 @@ hydro_events(dataframe, q, datetime, window = 1)
 \item{window}{Indicate time period to search for a local minimum (in hours)}
 }
 \value{
-A data frame with class \code{tbl_df} with a hydrological events column \code{he}
+A data frame with class \code{tbl_df} with a hydrological events
+column \code{he}
 added
 }
 \description{
@@ -29,5 +30,6 @@ data(djan)
 output_table <- hydro_events(dataframe = djan, q = discharge, datetime = time, window = 21)
 }
 \references{
-Sloto, R.A., Crouse, M.Y., 1996. Hysep: a computer program for streamflow hydrograph separation and analysis, \emph{U.S. Geological Survey Water-Resources Investigations Report} 96-4040.
+Sloto, R.A., Crouse, M.Y., 1996. Hysep: a computer program for
+streamflow hydrograph separation and analysis, \emph{U.S. Geological Survey Water-Resources Investigations Report} 96-4040.
 }

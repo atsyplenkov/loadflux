@@ -20,6 +20,8 @@ data(djanturb)
 head(djanturb)
 }
 \references{
-Chalov SR, Tsyplenkov AS. 2020. Influence of macroturbulence on the dynamics of river water turbidity. Vestnik Moskovskogo universiteta. Seriya 5, Geografiya 0 (3): 34–46 (In Russ.)
+Chalov SR, Tsyplenkov AS. 2020. Influence of macroturbulence on
+the dynamics of river water turbidity. Vestnik Moskovskogo universiteta.
+Seriya 5, Geografiya 0 (3): 34–46 (In Russ.)
 }
 \keyword{datasets}

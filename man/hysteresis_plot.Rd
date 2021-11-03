@@ -41,13 +41,14 @@ sediment concentration (\code{SSC}) relationship.
 library(dplyr)
 library(ggplot2)
 data(djan)
-output_table <- hydro_events(dataframe = djan,
-q = discharge,
-datetime = time,
-window = 21)
+output_table <- hydro_events(
+  dataframe = djan,
+  q = discharge,
+  datetime = time,
+  window = 21
+)
 
 output_table \%>\%
-filter(he == 2) \%>\%
-hysteresis_plot(q = discharge, ssc = SS)
-
+  filter(he == 2) \%>\%
+  hysteresis_plot(q = discharge, ssc = SS)
 }

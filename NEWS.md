@@ -1,4 +1,4 @@
-# loadflux 0.0.2
+# loadflux 0.0.2 _2021-11-03_
 
 * `AHI` function is added.
 * Some additional checks and tests are evaluated

@@ -4,7 +4,7 @@
 \alias{SHI}
 \title{Calculate Simple Hysteresis Index (SHI)}
 \usage{
-SHI(dataframe, q, ssc, .warn = T)
+SHI(dataframe, q, ssc, .warn = TRUE)
 }
 \arguments{
 \item{dataframe}{A data set object.}

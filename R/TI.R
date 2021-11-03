@@ -20,16 +20,19 @@
 #' @examples
 #' library(dplyr)
 #' data(djanturb)
-#' output_table <- hydro_events(dataframe = djanturb,
-#'                              q = discharge,
-#'                              datetime = time,
-#'                              window = 21)
+#' output_table <- hydro_events(
+#'   dataframe = djanturb,
+#'   q = discharge,
+#'   datetime = time,
+#'   window = 21
+#' )
 #'
 #' output_table %>%
 #'   filter(he == 2) %>%
-#'     TI(ssc = discharge,
-#'        datetime = time)
-#'
+#'   TI(
+#'     ssc = discharge,
+#'     datetime = time
+#'   )
 #' @export
 #' @importFrom dplyr "%>%" enquo select
 #' @importFrom tidyr drop_na
@@ -39,8 +42,7 @@
 TI <- function(dataframe,
                ssc,
                datetime, # a vector of date-time objects
-               round_time = "hour"){
-
+               round_time = "hour") {
   if (!is.data.frame(dataframe)) {
     rlang::abort(paste0(
       "`dataframe` must be a data.frame; not ",
@@ -71,11 +73,14 @@ TI <- function(dataframe,
 
   df %>%
     dplyr::mutate(hour = lubridate::round_date(datetime,
-                                               unit = round_time)) %>%
+      unit = round_time
+    )) %>%
     dplyr::mutate(ntu_dif = max(ssc) - min(ssc)) %>%
     dplyr::group_by(hour) %>%
-    dplyr::summarise(delta = max(ssc) - min(ssc),
-                     ntu_dif = mean(ntu_dif)) %>%
+    dplyr::summarise(
+      delta = max(ssc) - min(ssc),
+      ntu_dif = mean(ntu_dif)
+    ) %>%
     dplyr::mutate(TI = delta / ntu_dif) %>%
     dplyr::ungroup() %>%
     dplyr::pull(TI) %>%

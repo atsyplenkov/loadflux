@@ -28,16 +28,19 @@ following the description from \emph{Chalov & Tsyplenkov} (2020)
 \examples{
 library(dplyr)
 data(djanturb)
-output_table <- hydro_events(dataframe = djanturb,
-                             q = discharge,
-                             datetime = time,
-                             window = 21)
+output_table <- hydro_events(
+  dataframe = djanturb,
+  q = discharge,
+  datetime = time,
+  window = 21
+)
 
 output_table \%>\%
   filter(he == 2) \%>\%
-    TI(ssc = discharge,
-       datetime = time)
-
+  TI(
+    ssc = discharge,
+    datetime = time
+  )
 }
 \references{
 Chalov SR, Tsyplenkov AS. 2020. Influence of macroturbulence on the dynamics of river water turbidity. Vestnik Moskovskogo universiteta. Seriya 5, Geografiya 0 (3): 34–46 (In Russ.)

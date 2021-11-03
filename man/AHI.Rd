@@ -19,7 +19,8 @@ AHI(dataframe, q, ssc, .warn = TRUE)
 a numeric value either NA
 }
 \description{
-This function calculates Hysteresis Index proposed by \emph{Aich et al.} (2014)
+This function calculates Hysteresis Index proposed by
+\emph{Aich et al.} (2014)
 }
 \examples{
 library(dplyr)
@@ -34,5 +35,7 @@ output_table \%>\%
   AHI(q = discharge, ssc = SS)
 }
 \references{
-Aich V, Zimmermann A, Elsenbeer H. 2014. Quantification and interpretation of suspended-sediment discharge hysteresis patterns: How much data do we need? CATENA 122: 120–129 DOI: 10.1016/j.catena.2014.06.020
+Aich V, Zimmermann A, Elsenbeer H. 2014. Quantification and
+interpretation of suspended-sediment discharge hysteresis patterns: How much
+data do we need? CATENA 122: 120–129 DOI: 10.1016/j.catena.2014.06.020
 }

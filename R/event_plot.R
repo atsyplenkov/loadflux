@@ -20,28 +20,27 @@
 #' library(dplyr)
 #' data(djan)
 #' djan %>%
-#' hydro_events(q = discharge,
-#'              datetime = time,
-#'              window = 21) %>%
+#'   hydro_events(
+#'     q = discharge,
+#'     datetime = time,
+#'     window = 21
+#'   ) %>%
 #'   event_plot(q = SS, datetime = time, he = he)
-#'
 #' @export
 #' @importFrom dplyr "%>%" enquo select pull filter
-#' @import dygraphs
+#' @importFrom xts xts
 
 event_plot <- function(dataframe,
-                        q,
-                        datetime,
-                        he,
-                        ssc,
-                        ylabel = "Water discharge",
-                        y2label = "Suspended Sediment Concentration"){
-
-  . = NULL
+                       q,
+                       datetime,
+                       he,
+                       ssc,
+                       ylabel = "Water discharge",
+                       y2label = "Suspended Sediment Concentration") {
+  . <- NULL
 
   if (missing(he)) {
     if (missing(ssc)) {
-
       q <- dplyr::enquo(q)
       datetime <- dplyr::enquo(datetime)
 
@@ -50,17 +49,17 @@ event_plot <- function(dataframe,
         dplyr::arrange(!!datetime) %>%
         dplyr::select(!!q, !!datetime) %>%
         dplyr::mutate(q_int = zoo::na.approx(!!q, rule = 2)) %>%
-        xts::xts(x = data.frame("Q" = dplyr::pull(., q_int)),
-                 order.by = dplyr::pull(., !!datetime)) %>%
+        xts::xts(
+          x = data.frame("Q" = dplyr::pull(., q_int)),
+          order.by = dplyr::pull(., !!datetime)
+        ) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
-        dygraphs::dyAxis("y", label = ylabel) #%>%
-      #dygraphs::dyOptions(useDataTimezone = TRUE)
+        dygraphs::dyAxis("y", label = ylabel) # %>%
+      # dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
-
     } else {
-
       q <- dplyr::enquo(q)
       datetime <- dplyr::enquo(datetime)
       ssc <- dplyr::enquo(ssc)
@@ -71,29 +70,34 @@ event_plot <- function(dataframe,
         dplyr::select(!!q, !!datetime, !!ssc) %>%
         dplyr::mutate(q_int = zoo::na.approx(!!q, rule = 2)) %>%
         dplyr::mutate(ssc_int = zoo::na.approx(!!ssc, rule = 2)) %>%
-        xts::xts(x = data.frame("Q" = dplyr::pull(., q_int),
-                                "SSC" = dplyr::pull(., ssc_int)),
-                 order.by = dplyr::pull(., !!datetime)) %>%
+        xts::xts(
+          x = data.frame(
+            "Q" = dplyr::pull(., q_int),
+            "SSC" = dplyr::pull(., ssc_int)
+          ),
+          order.by = dplyr::pull(., !!datetime)
+        ) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q",
-                           label = rlang::as_name(q)) %>%
+          label = rlang::as_name(q)
+        ) %>%
         dygraphs::dySeries("SSC",
-                           label = rlang::as_name(ssc),
-                           axis = 'y2') %>%
+          label = rlang::as_name(ssc),
+          axis = "y2"
+        ) %>%
         dygraphs::dyAxis("y",
-                         label = ylabel) %>%
+          label = ylabel
+        ) %>%
         dygraphs::dyAxis("y2",
-                         label = y2label,
-                         independentTicks = TRUE) #%>%
-      #dygraphs::dyOptions(useDataTimezone = TRUE)
+          label = y2label,
+          independentTicks = TRUE
+        ) # %>%
+      # dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
-
     }
   } else {
-
     if (missing(ssc)) {
-
       q <- dplyr::enquo(q)
       datetime <- dplyr::enquo(datetime)
       he <- dplyr::enquo(he)
@@ -101,34 +105,38 @@ event_plot <- function(dataframe,
       db_he <-
         dataframe %>%
         dplyr::group_by(!!he) %>%
-        dplyr::summarise(start = dplyr::first(!!datetime),
-                         end = dplyr::last(!!datetime),
-                         .groups = 'drop')
+        dplyr::summarise(
+          start = dplyr::first(!!datetime),
+          end = dplyr::last(!!datetime),
+          .groups = "drop"
+        )
 
       plot <-
         dataframe %>%
         dplyr::arrange(!!datetime) %>%
         dplyr::select(!!q, !!datetime) %>%
         dplyr::mutate(q_int = zoo::na.approx(!!q, rule = 2)) %>%
-        xts::xts(x = data.frame("Q" = dplyr::pull(., q_int)),
-                 order.by = dplyr::pull(., !!datetime)) %>%
+        xts::xts(
+          x = data.frame("Q" = dplyr::pull(., q_int)),
+          order.by = dplyr::pull(., !!datetime)
+        ) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
-        dygraphs::dyAxis("y", label = ylabel) #%>%
-      #dygraphs::dyOptions(useDataTimezone = TRUE)
+        dygraphs::dyAxis("y", label = ylabel) # %>%
+      # dygraphs::dyOptions(useDataTimezone = TRUE)
 
-      rows_to_plot <- (1:nrow(db_he))[seq(1, nrow(db_he), 2)]
+      rows_to_plot <- (seq_len(nrow(db_he)))[seq(1, nrow(db_he), 2)]
 
       for (i in rows_to_plot) {
-        plot <- plot %>% dygraphs::dyShading(from = db_he$start[i],
-                                             to = db_he$end[i],
-                                             color = "#FFE6E6")
+        plot <- plot %>% dygraphs::dyShading(
+          from = db_he$start[i],
+          to = db_he$end[i],
+          color = "#FFE6E6"
+        )
       }
 
       plot
-
     } else {
-
       q <- dplyr::enquo(q)
       datetime <- dplyr::enquo(datetime)
       he <- dplyr::enquo(he)
@@ -137,9 +145,11 @@ event_plot <- function(dataframe,
       db_he <-
         dataframe %>%
         dplyr::group_by(!!he) %>%
-        dplyr::summarise(start = dplyr::first(!!datetime),
-                         end = dplyr::last(!!datetime),
-                         .groups = 'drop')
+        dplyr::summarise(
+          start = dplyr::first(!!datetime),
+          end = dplyr::last(!!datetime),
+          .groups = "drop"
+        )
 
       plot <-
         dataframe %>%
@@ -147,33 +157,41 @@ event_plot <- function(dataframe,
         dplyr::select(!!q, !!datetime, !!ssc) %>%
         dplyr::mutate(q_int = zoo::na.approx(!!q, rule = 2)) %>%
         dplyr::mutate(ssc_int = zoo::na.approx(!!ssc, rule = 2)) %>%
-        xts::xts(x = data.frame("Q" = dplyr::pull(., q_int),
-                                "SSC" = dplyr::pull(., ssc_int)),
-                 order.by = dplyr::pull(., !!datetime)) %>%
+        xts::xts(
+          x = data.frame(
+            "Q" = dplyr::pull(., q_int),
+            "SSC" = dplyr::pull(., ssc_int)
+          ),
+          order.by = dplyr::pull(., !!datetime)
+        ) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q",
-                           label = rlang::as_name(q)) %>%
+          label = rlang::as_name(q)
+        ) %>%
         dygraphs::dySeries("SSC",
-                           label = rlang::as_name(ssc),
-                           axis = 'y2') %>%
+          label = rlang::as_name(ssc),
+          axis = "y2"
+        ) %>%
         dygraphs::dyAxis("y",
-                         label = ylabel) %>%
+          label = ylabel
+        ) %>%
         dygraphs::dyAxis("y2",
-                         label = y2label,
-                         independentTicks = TRUE) #%>%
-      #dygraphs::dyOptions(useDataTimezone = TRUE)
+          label = y2label,
+          independentTicks = TRUE
+        ) # %>%
+      # dygraphs::dyOptions(useDataTimezone = TRUE)
 
-      rows_to_plot <- (1:nrow(db_he))[seq(1, nrow(db_he), 2)]
+      rows_to_plot <- (seq_len(nrow(db_he)))[seq(1, nrow(db_he), 2)]
 
       for (i in rows_to_plot) {
-        plot <- plot %>% dygraphs::dyShading(from = db_he$start[i],
-                                             to = db_he$end[i],
-                                             color = "#FFE6E6")
+        plot <- plot %>% dygraphs::dyShading(
+          from = db_he$start[i],
+          to = db_he$end[i],
+          color = "#FFE6E6"
+        )
       }
 
       plot
-
     }
-
   }
 }

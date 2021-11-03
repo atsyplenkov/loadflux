@@ -3,40 +3,55 @@ library(loadflux)
 library(dplyr)
 
 test_that("check output classes", {
-
-  output_table <- hydro_events(dataframe = djan,
-                               q = discharge,
-                               datetime = time,
-                               window = 21)
+  output_table <- hydro_events(
+    dataframe = djan,
+    q = discharge,
+    datetime = time,
+    window = 21
+  )
 
   output_plot <- output_table %>%
-    event_plot(q = discharge,
-               datetime = time,
-               he = he)
+    event_plot(
+      q = discharge,
+      datetime = time,
+      he = he
+    )
 
   output_ti <- djanturb %>%
-    hydro_events(q = discharge,
-                 datetime = time,
-                 window = 21) %>%
+    hydro_events(
+      q = discharge,
+      datetime = time,
+      window = 21
+    ) %>%
     dplyr::filter(he == 2) %>%
-    TI(ssc = discharge,
-       datetime = time)
+    TI(
+      ssc = discharge,
+      datetime = time
+    )
 
   output_ahi <- djan %>%
-    hydro_events(q = discharge,
-                 datetime = time,
-                 window = 21) %>%
+    hydro_events(
+      q = discharge,
+      datetime = time,
+      window = 21
+    ) %>%
     dplyr::filter(he == 2) %>%
-    AHI(q = discharge,
-        ssc = SS)
+    AHI(
+      q = discharge,
+      ssc = SS
+    )
 
   output_shi <- djan %>%
-    hydro_events(q = discharge,
-                 datetime = time,
-                 window = 21) %>%
+    hydro_events(
+      q = discharge,
+      datetime = time,
+      window = 21
+    ) %>%
     dplyr::filter(he == 2) %>%
-    SHI(q = discharge,
-        ssc = SS)
+    SHI(
+      q = discharge,
+      ssc = SS
+    )
 
   expect_error(hydro_events("cat"))
   expect_error(SHI("cat"))

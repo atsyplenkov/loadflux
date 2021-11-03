@@ -18,24 +18,30 @@
 #' library(tsibble)
 #'
 #' djants <- djan %>%
-#'        hydro_events(q = discharge,
-#'                     datetime = time,
-#'                     window = 21) %>%
-#'        as_tsibble(key = he,
-#'                   index = time)
+#'   hydro_events(
+#'     q = discharge,
+#'     datetime = time,
+#'     window = 21
+#'   ) %>%
+#'   as_tsibble(
+#'     key = he,
+#'     index = time
+#'   )
 #'
 #' djants %>%
-#'   features(time, # variable you want to explore
-#'            feat_event) # the feature summarisation you want to perform
+#'   features(
+#'     time, # variable you want to explore
+#'     feat_event
+#'   ) # the feature summarisation you want to perform
 #' @rdname loadflux-features
 #' @export
 #'
 #' @importFrom dplyr "%>%" first last tibble
 #' @importFrom rlang abort
 #' @importFrom lubridate is.POSIXct
+#' @importFrom tsibble tsibble as_tsibble
 
-feat_event <- function(x){
-
+feat_event <- function(x) {
   if (!lubridate::is.POSIXct(x)) {
     rlang::abort(paste0(
       "`datetime` must be a vector of date-time objects; not ",
