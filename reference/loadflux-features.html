@@ -185,15 +185,21 @@
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    intersect, setdiff, union</span></div><div class='input'>
 <span class='va'>djants</span> <span class='op'>&lt;-</span> <span class='va'>djan</span> <span class='op'>%&gt;%</span>
-       <span class='fu'><a href='hydro_events.html'>hydro_events</a></span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>discharge</span>,
-                    datetime <span class='op'>=</span> <span class='va'>time</span>,
-                    window <span class='op'>=</span> <span class='fl'>21</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-       <span class='fu'><a href='https://tsibble.tidyverts.org/reference/as-tsibble.html'>as_tsibble</a></span><span class='op'>(</span>key <span class='op'>=</span> <span class='va'>he</span>,
-                  index <span class='op'>=</span> <span class='va'>time</span><span class='op'>)</span>
+  <span class='fu'><a href='hydro_events.html'>hydro_events</a></span><span class='op'>(</span>
+    q <span class='op'>=</span> <span class='va'>discharge</span>,
+    datetime <span class='op'>=</span> <span class='va'>time</span>,
+    window <span class='op'>=</span> <span class='fl'>21</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://tsibble.tidyverts.org/reference/as-tsibble.html'>as_tsibble</a></span><span class='op'>(</span>
+    key <span class='op'>=</span> <span class='va'>he</span>,
+    index <span class='op'>=</span> <span class='va'>time</span>
+  <span class='op'>)</span>
 
 <span class='va'>djants</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://fabletools.tidyverts.org/reference/features.html'>features</a></span><span class='op'>(</span><span class='va'>time</span>, <span class='co'># variable you want to explore</span>
-           <span class='va'>feat_event</span><span class='op'>)</span> <span class='co'># the feature summarisation you want to perform</span>
+  <span class='fu'><a href='https://fabletools.tidyverts.org/reference/features.html'>features</a></span><span class='op'>(</span>
+    <span class='va'>time</span>, <span class='co'># variable you want to explore</span>
+    <span class='va'>feat_event</span>
+  <span class='op'>)</span> <span class='co'># the feature summarisation you want to perform</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 113 × 4</span>
 #&gt;       he start               end                 length  
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;drtn&gt;</span>  
