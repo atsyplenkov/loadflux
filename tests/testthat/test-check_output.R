@@ -38,6 +38,12 @@ test_that("check output classes", {
     SHI(q = discharge,
         ssc = SS)
 
+  expect_error(hydro_events("cat"))
+  expect_error(SHI("cat"))
+  expect_error(AHI("cat"))
+  expect_error(TI("cat"))
+  expect_error(event_plot("cat"))
+
   expect_s3_class(output_plot, c("dygraphs", "htmlwidget"))
   expect_type(output_ti, "double")
   expect_type(output_shi, "double")
