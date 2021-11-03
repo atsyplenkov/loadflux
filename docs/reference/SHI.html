@@ -155,7 +155,7 @@ following the description from Tsyplenkov et al. (2020)" />
 following the description from <em>Tsyplenkov et al.</em> (2020)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>SHI</span><span class='op'>(</span><span class='va'>dataframe</span>, <span class='va'>q</span>, <span class='va'>ssc</span>, .warn <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>SHI</span><span class='op'>(</span><span class='va'>dataframe</span>, <span class='va'>q</span>, <span class='va'>ssc</span>, .warn <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -189,17 +189,19 @@ following the description from <em>Tsyplenkov et al.</em> (2020)</p>
     <p>Matthias Vanmaercke and Anatoly Tsyplenkov</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>djan</span><span class='op'>)</span>
-<span class='va'>output_table</span> <span class='op'>&lt;-</span> <span class='fu'><a href='hydro_events.html'>hydro_events</a></span><span class='op'>(</span>dataframe <span class='op'>=</span> <span class='va'>djan</span>,
-                             q <span class='op'>=</span> <span class='va'>discharge</span>,
-                             datetime <span class='op'>=</span> <span class='va'>time</span>,
-                             window <span class='op'>=</span> <span class='fl'>21</span><span class='op'>)</span>
-
-<span class='va'>output_table</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>he</span> <span class='op'>==</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>SHI</span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>discharge</span>, ssc <span class='op'>=</span> <span class='va'>SS</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: NAs dropped</span></div><div class='output co'>#&gt; [1] 0.2473604</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>djan</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>output_table</span> <span class='op'>&lt;-</span> <span class='fu'><a href='hydro_events.html'>hydro_events</a></span><span class='op'>(</span>dataframe <span class='op'>=</span> <span class='va'>djan</span>,</span>
+<span class='r-in'>                             q <span class='op'>=</span> <span class='va'>discharge</span>,</span>
+<span class='r-in'>                             datetime <span class='op'>=</span> <span class='va'>time</span>,</span>
+<span class='r-in'>                             window <span class='op'>=</span> <span class='fl'>21</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>output_table</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>he</span> <span class='op'>==</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>SHI</span><span class='op'>(</span>q <span class='op'>=</span> <span class='va'>discharge</span>, ssc <span class='op'>=</span> <span class='va'>SS</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>NAs dropped</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 0.2473604</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
