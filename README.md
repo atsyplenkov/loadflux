@@ -5,11 +5,11 @@
 
 <!-- badges: start -->
 
-[![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://codecov.io/gh/atsyplenkov/loadflux)
-[![R-CMD-check](https://github.com/atsyplenkov/loadflux/workflows/R-CMD-check/badge.svg)](https://github.com/atsyplenkov/loadflux/actions)
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://app.codecov.io/gh/atsyplenkov/loadflux/)
+[![R-CMD-check](https://github.com/atsyplenkov/loadflux/workflows/R-CMD-check/badge.svg)](https://github.com/atsyplenkov/loadflux/actions/)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active/)
 <!-- badges: end -->
 
 The `loadflux` package is build for the comprehensive analysis of the
@@ -26,7 +26,7 @@ install.packages("loadflux")
  -->
 
 You can install the development version from
-[GitHub](https://github.com/) with:
+[GitHub](https://github.com/atsyplenkov/loadflux/) with:
 
 ``` r
 # install.packages("devtools")
@@ -84,14 +84,14 @@ calculation:
 **Added**
 
 -   `SHI` - Simple Hystersis Index from [*Tsyplenkov et al.,
-    2020*](https://link.springer.com/article/10.1007/s11368-020-02633-z)
+    2020*](https://link.springer.com/article/10.1007/s11368-020-02633-z/)
 -   `AHI` - Aich’s Hysteresis Index from [*Aich et al.,
-    2014*](https://www.sciencedirect.com/science/article/abs/pii/S0341816214001969)
+    2014*](https://www.sciencedirect.com/science/article/abs/pii/S0341816214001969/)
 
 **Pending**
 
 -   `HImid` - Hysteresis Index from [*Lawler et al.,
-    2006*](https://www.sciencedirect.com/science/article/abs/pii/S0048969705005711)
+    2006*](https://www.sciencedirect.com/science/article/abs/pii/S0048969705005711/)
 
 To calculate a hysteresis index for your event run as follows:
 
