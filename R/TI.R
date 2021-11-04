@@ -43,6 +43,7 @@ TI <- function(dataframe,
                ssc,
                datetime, # a vector of date-time objects
                round_time = "hour") {
+
   if (!is.data.frame(dataframe)) {
     rlang::abort(paste0(
       "`dataframe` must be a data.frame; not ",

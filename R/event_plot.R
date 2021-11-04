@@ -39,6 +39,8 @@ event_plot <- function(dataframe,
                        y2label = "Suspended Sediment Concentration") {
   . <- NULL
 
+  stopifnot("Table must be of class 'data.frame'" = "data.frame" %in% class(dataframe))
+
   if (missing(he)) {
     if (missing(ssc)) {
       q <- dplyr::enquo(q)

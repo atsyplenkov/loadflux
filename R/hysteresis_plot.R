@@ -40,6 +40,9 @@ hysteresis_plot <- function(dataframe,
                             ssc,
                             base_font_size = 12,
                             legend = "bottom", ...) {
+
+  stopifnot("Table must be of class 'data.frame'" = "data.frame" %in% class(dataframe))
+
   if (missing(datetime)) {
     q <- dplyr::enquo(q)
     ssc <- dplyr::enquo(ssc)

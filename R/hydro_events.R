@@ -27,6 +27,9 @@ hydro_events <- function(dataframe,
                          q,
                          datetime,
                          window = 1) {
+
+  stopifnot("Table must be of class 'data.frame'" = "data.frame" %in% class(dataframe))
+
   q <- deparse(substitute(q))
   datetime <- deparse(substitute(datetime))
 
