@@ -1,3 +1,6 @@
+# loadflux 0.0.2.9000 _2021-11-08_
+* CRAN release
+
 # loadflux 0.0.2 _2021-11-03_
 
 * `AHI` function is added.
