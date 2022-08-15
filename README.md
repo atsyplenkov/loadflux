@@ -7,8 +7,7 @@
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/loadflux)](https://cran.r-project.org/package=loadflux)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6992087.svg)](https://doi.org/10.5281/zenodo.6992087)
-[![metacran
-downloads](https://cranlogs.r-pkg.org/badges/loadflux)](https://cran.r-project.org/package=loadflux)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/loadflux)](https://cran.r-project.org/package=loadflux)
 [![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://app.codecov.io/gh/atsyplenkov/loadflux/)
 [![R-CMD-check](https://github.com/atsyplenkov/loadflux/workflows/R-CMD-check/badge.svg)](https://github.com/atsyplenkov/loadflux/actions/)
 [![Project Status: Active – The project has reached a stable, usable
@@ -110,6 +109,7 @@ df %>%
 
 ### ACKNOWLEDGEMENTS
 
-*This research was performed according to the Development program of the
-Interdisciplinary Scientific and Educational School of M.V. Lomonosov
-Moscow State University “Future Planet and Global Environmental Change”*
+*This package was developed in accordance to the Development program of
+the Interdisciplinary Scientific and Educational School of M.V.
+Lomonosov Moscow State University “Future Planet and Global
+Environmental Change”*
