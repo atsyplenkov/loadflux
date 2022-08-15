@@ -1,0 +1,16 @@
+citHeader("To cite loadflux in publications use:")
+
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s", meta$Version)
+
+bibentry(bibtype = "Manual",
+         title = "{loadflux}: Explore Intra-Event Suspended Sediment Dynamics",
+         author = c(person("Anatoly", "Tsyplenkov")),
+         year = year,
+         note = note,
+         doi = "10.5281/zenodo.6992086",
+	       url = "https://CRAN.R-project.org/package=loadflux")
+
+ textVersion = paste0("Anatoly S Tsyplenkov, (", year, ").",
+  "loadflux: Explore Intra-Event Suspended Sediment Dynamics. ",
+  note, ". DOI: 10.5281/zenodo.6992086. https://CRAN.R-project.org/package=loadflux")

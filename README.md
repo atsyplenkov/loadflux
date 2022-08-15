@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/loadflux)](https://cran.r-project.org/package=loadflux)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6992087.svg)](https://doi.org/10.5281/zenodo.6992087)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/loadflux)](https://cran.r-project.org/package=loadflux)
 [![codecov](https://codecov.io/gh/atsyplenkov/loadflux/branch/master/graph/badge.svg?token=DI1DCJV15D)](https://app.codecov.io/gh/atsyplenkov/loadflux/)
@@ -52,7 +53,7 @@ df <- djan %>%
                window = 21)
 
 head(df)
-#> # A tibble: 6 x 4
+#> # A tibble: 6 × 4
 #>      he time                discharge    SS
 #>   <dbl> <dttm>                  <dbl> <dbl>
 #> 1     1 2017-06-06 12:00:00     0.778  227.
@@ -99,9 +100,16 @@ calculation:
 To calculate a hysteresis index for your event run as follows:
 
 ``` r
+
 df %>% 
   filter(he == 2) %>% 
   SHI(q = discharge,
       ssc = SS)
 #> [1] 0.2473604
 ```
+
+### ACKNOWLEDGEMENTS
+
+*This research was performed according to the Development program of the
+Interdisciplinary Scientific and Educational School of M.V. Lomonosov
+Moscow State University “Future Planet and Global Environmental Change”*
