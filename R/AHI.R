@@ -3,7 +3,7 @@
 #' @description This function calculates Hysteresis Index proposed by
 #' \emph{Aich et al.} (2014)
 #'
-#' @param dataframe A data set object.
+#' @param dataframe data.frame object.
 #' @param q numeric, water discharge variable.
 #' @param ssc numeric, suspended sediment concentration variable.
 #' @param .warn logical, indicating if the warning message should be displayed.

@@ -7,7 +7,7 @@
 AHI(dataframe, q, ssc, .warn = TRUE)
 }
 \arguments{
-\item{dataframe}{A data set object.}
+\item{dataframe}{data.frame object.}
 
 \item{q}{numeric, water discharge variable.}
 
