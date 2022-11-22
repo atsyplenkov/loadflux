@@ -22,6 +22,7 @@
 #'
 #' @importFrom dplyr "%>%" enquo select pull filter
 #' @importFrom tidyr drop_na
+#' @importFrom stats approx
 #'
 #' @example man/examples/HImid_example.R
 #'
@@ -64,9 +65,9 @@ HImid <- function(dataframe,
   target <- mid(df$q)
   idx <- which(abs(diff(sign(df$q-target)))>0)
 
-  f <- function(i, target) approx(c(df$q[i], df$q[i+1]),
-                                  c(df$ssc[i], df$ssc[i+1]),
-                                  xout=target)
+  f <- function(i, target) stats::approx(c(df$q[i], df$q[i+1]),
+                                         c(df$ssc[i], df$ssc[i+1]),
+                                         xout=target)
 
   yp <- sapply(idx, f, target=target)
   yp <- as.data.frame(yp[-1,])

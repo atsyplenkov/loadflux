@@ -57,8 +57,8 @@ event_plot <- function(dataframe,
         ) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
-        dygraphs::dyAxis("y", label = ylabel) # %>%
-      # dygraphs::dyOptions(useDataTimezone = TRUE)
+        dygraphs::dyAxis("y", label = ylabel)  %>%
+        dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
     } else {
@@ -93,8 +93,8 @@ event_plot <- function(dataframe,
         dygraphs::dyAxis("y2",
           label = y2label,
           independentTicks = TRUE
-        ) # %>%
-      # dygraphs::dyOptions(useDataTimezone = TRUE)
+        ) %>%
+      dygraphs::dyOptions(useDataTimezone = TRUE)
 
       plot
     }
@@ -124,8 +124,8 @@ event_plot <- function(dataframe,
         ) %>%
         dygraphs::dygraph() %>%
         dygraphs::dySeries("Q", label = rlang::as_name(q)) %>%
-        dygraphs::dyAxis("y", label = ylabel) # %>%
-      # dygraphs::dyOptions(useDataTimezone = TRUE)
+        dygraphs::dyAxis("y", label = ylabel) %>%
+        dygraphs::dyOptions(useDataTimezone = TRUE)
 
       rows_to_plot <- (seq_len(nrow(db_he)))[seq(1, nrow(db_he), 2)]
 
@@ -180,8 +180,8 @@ event_plot <- function(dataframe,
         dygraphs::dyAxis("y2",
           label = y2label,
           independentTicks = TRUE
-        ) # %>%
-      # dygraphs::dyOptions(useDataTimezone = TRUE)
+        ) %>%
+        dygraphs::dyOptions(useDataTimezone = TRUE)
 
       rows_to_plot <- (seq_len(nrow(db_he)))[seq(1, nrow(db_he), 2)]
 
