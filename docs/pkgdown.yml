@@ -1,8 +1,8 @@
-pandoc: 2.19.2
-pkgdown: 2.0.6
+pandoc: 3.0.1
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   loadflux: loadflux.html
   turbidity: turbidity.html
-last_built: 2022-11-22T17:10Z
+last_built: 2023-02-23T13:12Z
 
