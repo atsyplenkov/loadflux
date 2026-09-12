@@ -30,8 +30,8 @@ output_table <- hydro_events(dataframe = djan,
                              datetime = time,
                              window = 21)
 
-output_table \%>\%
-  filter(he == 2) \%>\%
+output_table |>
+  filter(he == 2) |>
   SHI(q = discharge, ssc = SS)
 }
 \references{

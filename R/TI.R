@@ -27,14 +27,14 @@
 #'   window = 21
 #' )
 #'
-#' output_table %>%
-#'   filter(he == 2) %>%
+#' output_table |>
+#'   filter(he == 2) |>
 #'   TI(
 #'     ssc = discharge,
 #'     datetime = time
 #'   )
 #' @export
-#' @importFrom dplyr "%>%" enquo select
+#' @importFrom dplyr enquo select
 #' @importFrom tidyr drop_na
 #' @importFrom rlang abort
 #' @importFrom lubridate is.POSIXct round_date
@@ -54,8 +54,8 @@ TI <- function(dataframe,
   datetime <- dplyr::enquo(datetime)
   ssc <- dplyr::enquo(ssc)
 
-  df <- dataframe %>%
-    tidyr::drop_na(!!datetime, !!ssc) %>%
+  df <- dataframe |>
+    tidyr::drop_na(!!datetime, !!ssc) |>
     dplyr::select(datetime = !!datetime, ssc = !!ssc)
 
   if (!lubridate::is.POSIXct(df$datetime)) {
@@ -72,18 +72,18 @@ TI <- function(dataframe,
     ))
   }
 
-  df %>%
+  df |>
     dplyr::mutate(hour = lubridate::round_date(datetime,
       unit = round_time
-    )) %>%
-    dplyr::mutate(ntu_dif = max(ssc) - min(ssc)) %>%
-    dplyr::group_by(hour) %>%
+    )) |>
+    dplyr::mutate(ntu_dif = max(ssc) - min(ssc)) |>
+    dplyr::group_by(hour) |>
     dplyr::summarise(
       delta = max(ssc) - min(ssc),
       ntu_dif = mean(ntu_dif)
-    ) %>%
-    dplyr::mutate(TI = delta / ntu_dif) %>%
-    dplyr::ungroup() %>%
-    dplyr::pull(TI) %>%
+    ) |>
+    dplyr::mutate(TI = delta / ntu_dif) |>
+    dplyr::ungroup() |>
+    dplyr::pull(TI) |>
     mean()
 }

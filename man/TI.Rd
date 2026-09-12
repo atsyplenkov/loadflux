@@ -35,8 +35,8 @@ output_table <- hydro_events(
   window = 21
 )
 
-output_table \%>\%
-  filter(he == 2) \%>\%
+output_table |>
+  filter(he == 2) |>
   TI(
     ssc = discharge,
     datetime = time

@@ -1,16 +1,22 @@
-## Resubmission
+## Resubmission (un-archive)
 
-This is a resubmission that incorporates the CRAN comments from the first submission.
+This is an update of loadflux, previously published as 0.0.2 and archived on
+2023-05-19 because issues were not corrected in time.
 
-We fixed:
-- everywhere as possible http was changed to https
-- added trailing slashes
-- in README.md  https://codecov.io/gh/atsyplenkov/loadflux was changed to https://app.codecov.io/gh/atsyplenkov/loadflux/
+CRAN Linux checks ERROR'd while rebuilding vignettes: turbidity.Rmd called
+library(brolgar) after brolgar had left CRAN. A check without Suggests also
+ERROR'd on unconditional library(fabletools) in examples/tests and
+library(feasts) in the same vignette.
+
+See:
+https://cran-archive.R-project.org/web/checks/2023/2023-05-19_check_results_loadflux.html
+
+Version 0.1.0 removes feat_event and the brolgar / fabletools / feasts / tsibble
+stack. The turbidity vignette now uses only loadflux and its Imports. Suggests
+are no longer loaded unconditionally.
 
 ## Test environments
-- R-hub windows-x86_64-devel (r-devel)
-- R-hub ubuntu-gcc-release (r-release)
-- R-hub fedora-clang-devel (r-devel)
+- local Linux, R 4.6.1
 
 ## R CMD check results
 
@@ -18,7 +24,8 @@ We fixed:
 
 Maintainer: 'Anatoly Tsyplenkov <atsyplenkov@gmail.com>'
 
-This is a submission for a new package.
+New submission
 
-## Downstream dependencies
-There are currently no downstream dependencies for this package.
+Package was archived on CRAN
+
+This incoming note is expected for an un-archive.

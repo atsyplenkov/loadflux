@@ -20,7 +20,7 @@
 #'
 #' @export
 #'
-#' @importFrom dplyr "%>%" enquo select pull filter
+#' @importFrom dplyr enquo select pull filter
 #' @importFrom tidyr drop_na
 #' @importFrom stats approx
 #'
@@ -46,8 +46,8 @@ HImid <- function(dataframe,
   q <- dplyr::enquo(q)
   ssc <- dplyr::enquo(ssc)
 
-  df <- dataframe %>%
-    tidyr::drop_na(!!q, !!ssc) %>%
+  df <- dataframe |>
+    tidyr::drop_na(!!q, !!ssc) |>
     dplyr::select(q = !!q, ssc = !!ssc)
 
   # Additional checks

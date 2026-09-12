@@ -18,9 +18,7 @@ This is an example workflow of how to perform basic turbidity analysis with `loa
 
 ```{r setup, warning=FALSE, message=FALSE}
 library(dplyr)
-library(purrr)
 library(tidyr)
-library(tsibble)
 library(loadflux)
 ```
 
@@ -34,7 +32,7 @@ df <- hydro_events(dataframe = djanturb,
                    datetime = time,
                    window = 21)
 
-df %>% 
+df |> 
   event_plot(q = discharge,
              datetime = time,
              he = he,
@@ -48,53 +46,51 @@ Then we can calculate Turbidity Index `TI` for every hydrological event
 
 ```{r ti_index}
 
-TI_index <- df %>% 
-  group_by(he) %>% 
-  nest() %>% 
-  mutate(TI = map_dbl(data, ~TI(.x, ntu, time))) %>% 
-  select(-data) %>% 
+TI_index <- df |> 
+  group_by(he) |> 
+  nest() |> 
+  mutate(
+    TI = vapply(data, function(x) TI(x, ntu, time), numeric(1))
+  ) |> 
+  select(-data) |> 
   ungroup()
 
 TI_index
 
 ```
 
-### Hydrological events parameters
+### Hydrological event parameters
 
-To summarize the hydrological events parameters an approach from `features` package can be used. For this purpose we need to transform our dataframe into `tsibble` object:
+Start, end, and duration of each event used to go through `tsibble` and
+`feat_event`. The same numbers are a grouped summary of `time`:
 
-```{r to_tsibble}
-library(tsibble)
+```{r event_params}
+event_params <- df |>
+  group_by(he) |>
+  summarise(
+    start = min(time),
+    end = max(time),
+    length = difftime(end, start, units = "h"),
+    .groups = "drop"
+  )
 
-df_ts <- df %>% 
-  as_tsibble(key = he,
-             index = time)
-
-df_ts
+event_params
 ```
 
-Then we can calculate start, end and length of the every hydrological event:
-```{r feat_ev}
-library(feasts)
+A five-number summary of turbidity per event used to come from
+`brolgar::feat_five_num`. That is also a grouped summary:
 
-df_ts %>% 
-  features(time,
-           feat_event)
+```{r ntu_summary}
+ntu_summary <- df |>
+  group_by(he) |>
+  summarise(
+    min = min(ntu, na.rm = TRUE),
+    q25 = stats::quantile(ntu, 0.25, na.rm = TRUE, names = FALSE),
+    median = stats::median(ntu, na.rm = TRUE),
+    q75 = stats::quantile(ntu, 0.75, na.rm = TRUE, names = FALSE),
+    max = max(ntu, na.rm = TRUE),
+    .groups = "drop"
+  )
 
+ntu_summary
 ```
-
-Or with the help of `brolgar` and `feasts` packages we can calculate turbidity statistics, autocorrelation and spectral functions:
-
-```{r stats}
-library(brolgar)
-library(feasts)
-
-df_ts %>% 
-  features(ntu, feat_five_num)
-
-df_ts %>% 
-  features(ntu, c(feat_spectral,
-                  feat_acf))
-
-```
-

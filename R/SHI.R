@@ -17,7 +17,7 @@
 #' @example man/examples/SHI_example.R
 #'
 #' @export
-#' @importFrom dplyr "%>%" enquo select
+#' @importFrom dplyr enquo select
 #' @importFrom tidyr drop_na
 #' @importFrom stats lm coef
 #'
@@ -39,8 +39,8 @@ SHI <- function(dataframe, q, ssc, .warn = TRUE) {
   q <- dplyr::enquo(q)
   ssc <- dplyr::enquo(ssc)
 
-  df <- dataframe %>%
-    tidyr::drop_na(!!q, !!ssc) %>%
+  df <- dataframe |>
+    tidyr::drop_na(!!q, !!ssc) |>
     dplyr::select(q = !!q, ssc = !!ssc)
 
   # Additional checks

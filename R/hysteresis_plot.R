@@ -25,11 +25,11 @@
 #'   window = 21
 #' )
 #'
-#' output_table %>%
-#'   filter(he == 2) %>%
+#' output_table |>
+#'   filter(he == 2) |>
 #'   hysteresis_plot(q = discharge, ssc = SS)
 #' @export
-#' @importFrom dplyr "%>%" enquo select pull filter row_number
+#' @importFrom dplyr enquo select pull filter row_number
 #' @importFrom tidyr drop_na
 #' @importFrom ggplot2 aes ggplot labs theme geom_point geom_line
 #' @importFrom ggplot2 arrow geom_path element_blank unit
@@ -47,12 +47,12 @@ hysteresis_plot <- function(dataframe,
     q <- dplyr::enquo(q)
     ssc <- dplyr::enquo(ssc)
 
-    dataframe %>%
-      tidyr::drop_na(!!q, !!ssc) %>%
+    dataframe |>
+      tidyr::drop_na(!!q, !!ssc) |>
       dplyr::mutate(Limb = ifelse(dplyr::row_number() %in% c(1:which.max(!!q)),
         "Rising limb",
         "Falling limb"
-      )) %>%
+      )) |>
       ggplot2::ggplot(ggplot2::aes(x = !!q, y = !!ssc)) +
       ggplot2::geom_path(arrow = ggplot2::arrow(
         length = ggplot2::unit(3, "mm"),
@@ -77,12 +77,12 @@ hysteresis_plot <- function(dataframe,
     datetime <- dplyr::enquo(datetime)
     ssc <- dplyr::enquo(ssc)
 
-    dataframe %>%
-      dplyr::arrange(!!datetime) %>%
-      tidyr::drop_na(!!q, !!ssc) %>%
+    dataframe |>
+      dplyr::arrange(!!datetime) |>
+      tidyr::drop_na(!!q, !!ssc) |>
       dplyr::mutate(Limb = ifelse(dplyr::row_number() %in% c(1:which.max(!!q)),
         "Rising limb", "Falling limb"
-      )) %>%
+      )) |>
       ggplot2::ggplot(ggplot2::aes(x = !!q, y = !!ssc)) +
       ggplot2::geom_path(arrow = ggplot2::arrow(
         length = unit(3, "mm"),
