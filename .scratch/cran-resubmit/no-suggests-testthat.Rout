@@ -1,0 +1,49 @@
+
+R version 4.6.1 (2026-06-24) -- "Happy Hop"
+Copyright (C) 2026 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(testthat)
+> library(loadflux)
+> 
+> test_check("loadflux")
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: 'tsibble'
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, union
+
+[ FAIL 0 | WARN 0 | SKIP 1 | PASS 0 ]
+
+══ Skipped tests (1) ═══════════════════════════════════════════════════════════
+• {fabletools} is not installed. (1): 'test-check_output.R:5:1'
+
+[ FAIL 0 | WARN 0 | SKIP 1 | PASS 0 ]
+> 
+> proc.time()
+   user  system elapsed 
+  1.629   0.102   1.740 

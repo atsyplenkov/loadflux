@@ -1,0 +1,161 @@
+* using log directory ‘/home/ats/.grok/worktrees/development-loadflux/subagent-01a0966a-207b-7db2-95f9-4c40bf0925e8/.scratch/cran-resubmit/no-suggests/loadflux.Rcheck’
+* using R version 4.6.1 (2026-06-24)
+* using platform: x86_64-pc-linux-gnu
+* R was compiled by
+    gcc (GCC) 16.1.1 20260430
+    GNU Fortran (GCC) 16.1.1 20260430
+* running under: Arch Linux
+* using session charset: UTF-8
+* current time: 2026-09-12 16:21:50 UTC
+* using option ‘--as-cran’
+* checking for file ‘loadflux/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘loadflux’ version ‘0.0.3’
+* package encoding: UTF-8
+* checking CRAN incoming feasibility ... [5s/23s] NOTE
+Maintainer: ‘Anatoly Tsyplenkov <atsyplenkov@gmail.com>’
+
+New submission
+
+Package was archived on CRAN
+
+CRAN repository db overrides:
+  X-CRAN-Comment: Archived on 2023-05-19 as issues were not corrected
+    in time.
+
+Package has a VignetteBuilder field but no prebuilt vignette index.
+
+Found the following (possibly) invalid URLs:
+  URL: https://atsyplenkov.github.io/loadflux/ (moved to https://anatolii.nz/loadflux/)
+    From: DESCRIPTION
+    Status: 301
+    Message: Moved Permanently
+  URL: https://link.springer.com/article/10.1007/s11368-020-02633-z/ (moved to https://link.springer.com/article/10.1007/s11368-020-02633-z)
+    From: README.md
+    Status: 301
+    Message: Moved Permanently
+For content that is 'Moved Permanently', please change http to https,
+add trailing slashes, or replace the old by the new URL.
+* checking package namespace information ... OK
+* checking package dependencies ... INFO
+Packages suggested but not available for checking:
+  'brolgar', 'fabletools', 'feasts'
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘loadflux’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking code files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking use of S3 registration ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of ‘data’ directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking LazyData ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking files in ‘vignettes’ ... WARNING
+Files in the 'vignettes' directory but no files in 'inst/doc':
+  ‘loadflux.Rmd’ ‘turbidity.Rmd’
+* checking examples ... ERROR
+Running examples in ‘loadflux-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: loadflux-features
+> ### Title: Calculate features of a 'tsibble' object in conjunction with
+> ###   [features()]
+> ### Aliases: loadflux-features feat_event
+> 
+> ### ** Examples
+> 
+> 
+> # You can use any of the features `feat_*` in conjunction with `features`
+> # like so:
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(fabletools)
+Error in library(fabletools) : there is no package called ‘fabletools’
+Execution halted
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ... OK
+  Running ‘testthat.R’
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes ... WARNING
+Directory 'inst/doc' does not exist.
+Package vignettes without corresponding single PDF/HTML:
+  ‘loadflux.Rmd’
+  ‘turbidity.Rmd’
+* checking re-building of vignette outputs ... ERROR
+Error(s) in re-building vignettes:
+--- re-building ‘loadflux.Rmd’ using rmarkdown
+[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.
+--- finished re-building ‘loadflux.Rmd’
+
+--- re-building ‘turbidity.Rmd’ using rmarkdown
+
+Quitting from turbidity.Rmd:77-84 [feat_ev]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<error/rlang_error>
+Error in `library()`:
+! there is no package called 'feasts'
+---
+Backtrace:
+    ▆
+ 1. └─base::library(feasts)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Error: processing vignette 'turbidity.Rmd' failed with diagnostics:
+there is no package called 'feasts'
+--- failed re-building ‘turbidity.Rmd’
+
+SUMMARY: processing the following file failed:
+  ‘turbidity.Rmd’
+
+Error: Vignette re-building failed.
+Execution halted
+
+* checking PDF version of manual ... OK
+* checking HTML version of manual ... OK
+* checking for non-standard things in the check directory ... OK
+* checking for detritus in the temp directory ... OK
+* DONE
+Status: 2 ERRORs, 2 WARNINGs, 1 NOTE

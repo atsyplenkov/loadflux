@@ -1,0 +1,32 @@
+* checking for file ‘./DESCRIPTION’ ... OK
+* preparing ‘loadflux’:
+* checking DESCRIPTION meta-information ... OK
+* installing the package (it is needed to build vignettes)
+* creating vignettes ... ERROR
+--- re-building ‘loadflux.Rmd’ using rmarkdown
+[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.
+--- finished re-building ‘loadflux.Rmd’
+
+--- re-building ‘turbidity.Rmd’ using rmarkdown
+
+Quitting from turbidity.Rmd:77-84 [feat_ev]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<error/rlang_error>
+Error in `library()`:
+! there is no package called 'feasts'
+---
+Backtrace:
+    ▆
+ 1. └─base::library(feasts)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Error: processing vignette 'turbidity.Rmd' failed with diagnostics:
+there is no package called 'feasts'
+--- failed re-building ‘turbidity.Rmd’
+
+SUMMARY: processing the following file failed:
+  ‘turbidity.Rmd’
+
+Error: Vignette re-building failed.
+Execution halted
+EXIT:1

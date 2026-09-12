@@ -1,0 +1,50 @@
+* using log directory ‘/home/ats/.grok/worktrees/development-loadflux/subagent-01a0966a-207b-7db2-95f9-4c40bf0925e8/.scratch/cran-resubmit/as-cran/loadflux.Rcheck’
+* using R version 4.6.1 (2026-06-24)
+* using platform: x86_64-pc-linux-gnu
+* R was compiled by
+    gcc (GCC) 16.1.1 20260430
+    GNU Fortran (GCC) 16.1.1 20260430
+* running under: Arch Linux
+* using session charset: UTF-8
+* current time: 2026-09-12 16:21:50 UTC
+* using option ‘--as-cran’
+* checking for file ‘loadflux/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘loadflux’ version ‘0.0.3’
+* package encoding: UTF-8
+* checking CRAN incoming feasibility ... [5s/23s] NOTE
+Maintainer: ‘Anatoly Tsyplenkov <atsyplenkov@gmail.com>’
+
+New submission
+
+Package was archived on CRAN
+
+CRAN repository db overrides:
+  X-CRAN-Comment: Archived on 2023-05-19 as issues were not corrected
+    in time.
+
+Package has a VignetteBuilder field but no prebuilt vignette index.
+
+Found the following (possibly) invalid URLs:
+  URL: https://atsyplenkov.github.io/loadflux/ (moved to https://anatolii.nz/loadflux/)
+    From: DESCRIPTION
+    Status: 301
+    Message: Moved Permanently
+  URL: https://link.springer.com/article/10.1007/s11368-020-02633-z/ (moved to https://link.springer.com/article/10.1007/s11368-020-02633-z)
+    From: README.md
+    Status: 301
+    Message: Moved Permanently
+For content that is 'Moved Permanently', please change http to https,
+add trailing slashes, or replace the old by the new URL.
+* checking package namespace information ... OK
+* checking package dependencies ... ERROR
+Packages suggested but not available: 'brolgar', 'fabletools', 'feasts'
+
+The suggested packages are required for a complete check.
+Checking can be attempted without them by setting the environment
+variable _R_CHECK_FORCE_SUGGESTS_ to a false value.
+
+See section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’
+manual.
+* DONE
+Status: 1 ERROR, 1 NOTE
