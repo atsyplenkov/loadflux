@@ -20,7 +20,7 @@
 #' data(djan)
 #' output_table <- hydro_events(dataframe = djan, q = discharge, datetime = time, window = 21)
 #' @export
-#' @importFrom dplyr "%>%" everything select as_tibble
+#' @importFrom dplyr everything select as_tibble
 #' @importFrom zoo na.locf na.approx
 
 hydro_events <- function(dataframe,

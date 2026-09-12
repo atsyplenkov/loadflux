@@ -23,7 +23,7 @@ library(dplyr)
 library(loadflux)
 data(djan)
 
-df <- djan %>% 
+df <- djan |> 
   hydro_events(q = discharge, # Water discharge
                datetime = time, # POSISct argument
                window = 21) # Search window
@@ -37,7 +37,7 @@ Then you can explore visually hydrological events via `event_plot` function. Thi
 ```{r interactive_plot, message=FALSE, warning=FALSE, out.width = "90%", fig.align='center'}
 library(dygraphs)
 
-df %>%
+df |>
   event_plot(q = discharge, # Y-axis
              datetime = time, #X-axis
              he = he) # Hydrological events
@@ -49,7 +49,7 @@ You can even explore both *Water Discharge* `Q` and *Suspended Sedimnet Concentr
 ```{r interactive_plot2, message=FALSE, warning=FALSE, out.width = "90%", fig.align='center'}
 library(dygraphs)
 
-df %>%
+df |>
   event_plot(q = discharge, # Y-axis
              ssc = SS,
              datetime = time, #X-axis

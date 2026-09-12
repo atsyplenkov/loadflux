@@ -41,11 +41,11 @@ package
 \examples{
 library(dplyr)
 data(djan)
-djan \%>\%
+djan |>
   hydro_events(
     q = discharge,
     datetime = time,
     window = 21
-  ) \%>\%
+  ) |>
   event_plot(q = SS, datetime = time, he = he)
 }

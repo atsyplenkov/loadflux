@@ -16,7 +16,7 @@
 #'
 #' @export
 #'
-#' @importFrom dplyr "%>%" enquo select pull filter
+#' @importFrom dplyr enquo select pull filter
 #' @importFrom tidyr drop_na
 #' @importFrom stats lm coef
 #'
@@ -41,8 +41,8 @@ AHI <- function(dataframe, q, ssc, .warn = TRUE) {
   q <- dplyr::enquo(q)
   ssc <- dplyr::enquo(ssc)
 
-  df <- dataframe %>%
-    tidyr::drop_na(!!q, !!ssc) %>%
+  df <- dataframe |>
+    tidyr::drop_na(!!q, !!ssc) |>
     dplyr::select(q = !!q, ssc = !!ssc)
 
   # Additional checks
@@ -56,14 +56,14 @@ AHI <- function(dataframe, q, ssc, .warn = TRUE) {
   )
 
   # Normalize dataframe
-  tt <- df %>%
+  tt <- df |>
     dplyr::mutate(
       x = q / max(q),
       y = ssc / max(ssc)
     )
 
   # Connect max Q and last sediment sample
-  min_max <- tt %>%
+  min_max <- tt |>
     dplyr::filter(x == max(x) | y == dplyr::last(y))
 
   mm_lm <- lm(y ~ x, data = min_max)
@@ -105,9 +105,9 @@ AHI <- function(dataframe, q, ssc, .warn = TRUE) {
 
   rising_x <- rising_df[which.max(rising_res), ]
 
-  line_y <- line %>%
-    dplyr::filter(round(x, 3) == round(rising_x$x, 3)) %>%
-    dplyr::pull(y) %>%
+  line_y <- line |>
+    dplyr::filter(round(x, 3) == round(rising_x$x, 3)) |>
+    dplyr::pull(y) |>
     mean()
 
   # falling limb
@@ -116,9 +116,9 @@ AHI <- function(dataframe, q, ssc, .warn = TRUE) {
 
   falling_x <- falling_df[which.max(falling_res), ]
 
-  falling_line_y <- line %>%
-    dplyr::filter(round(x, 3) == round(falling_x$x, 3)) %>%
-    dplyr::pull(y) %>%
+  falling_line_y <- line |>
+    dplyr::filter(round(x, 3) == round(falling_x$x, 3)) |>
+    dplyr::pull(y) |>
     mean()
 
 

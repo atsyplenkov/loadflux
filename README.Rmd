@@ -52,7 +52,7 @@ library(dplyr)
 library(loadflux)
 data(djan)
 
-df <- djan %>% 
+df <- djan |> 
   hydro_events(q = discharge,
                datetime = time,
                window = 21)
@@ -67,8 +67,8 @@ Then you can  plot the hysteresis loop by running `hysteresis_plot`
 ```{r hysteresis_plot, message=FALSE, warning=FALSE, out.width = "50%", fig.align='center'}
 library(ggplot2)
 
-df %>% 
-  filter(he == 2) %>%
+df |> 
+  filter(he == 2) |>
   hysteresis_plot(q = discharge,
                   ssc = SS,
                   base_font_size = 14)
@@ -91,8 +91,8 @@ To calculate a hysteresis index for your event run as follows:
 
 ```{r shi, message=FALSE, warning=FALSE}
 
-df %>% 
-  filter(he == 2) %>% 
+df |> 
+  filter(he == 2) |> 
   SHI(q = discharge,
       ssc = SS)
 

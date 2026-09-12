@@ -1,6 +1,8 @@
 # loadflux 0.1.0
 
 * CRAN resubmission after archival on 2023-05-19.
+* Replaced magrittr pipes with the native `|>` pipe; `Depends` is now
+  R (>= 4.2).
 * Removed `feat_event` and the `brolgar` / `fabletools` / `feasts` / `tsibble`
   integration.
 

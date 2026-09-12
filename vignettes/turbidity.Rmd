@@ -32,7 +32,7 @@ df <- hydro_events(dataframe = djanturb,
                    datetime = time,
                    window = 21)
 
-df %>% 
+df |> 
   event_plot(q = discharge,
              datetime = time,
              he = he,
@@ -46,13 +46,13 @@ Then we can calculate Turbidity Index `TI` for every hydrological event
 
 ```{r ti_index}
 
-TI_index <- df %>% 
-  group_by(he) %>% 
-  nest() %>% 
+TI_index <- df |> 
+  group_by(he) |> 
+  nest() |> 
   mutate(
     TI = vapply(data, function(x) TI(x, ntu, time), numeric(1))
-  ) %>% 
-  select(-data) %>% 
+  ) |> 
+  select(-data) |> 
   ungroup()
 
 TI_index
@@ -65,8 +65,8 @@ Start, end, and duration of each event used to go through `tsibble` and
 `feat_event`. The same numbers are a grouped summary of `time`:
 
 ```{r event_params}
-event_params <- df %>%
-  group_by(he) %>%
+event_params <- df |>
+  group_by(he) |>
   summarise(
     start = min(time),
     end = max(time),
@@ -81,8 +81,8 @@ A five-number summary of turbidity per event used to come from
 `brolgar::feat_five_num`. That is also a grouped summary:
 
 ```{r ntu_summary}
-ntu_summary <- df %>%
-  group_by(he) %>%
+ntu_summary <- df |>
+  group_by(he) |>
   summarise(
     min = min(ntu, na.rm = TRUE),
     q25 = stats::quantile(ntu, 0.25, na.rm = TRUE, names = FALSE),

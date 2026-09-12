@@ -10,22 +10,22 @@ test_that("check output classes", {
     window = 21
   )
 
-  output_plot <- output_table %>%
+  output_plot <- output_table |>
     event_plot(q = discharge, datetime = time, he = he)
 
-  output_ti <- djanturb %>%
-    hydro_events(q = discharge, datetime = time, window = 21) %>%
-    dplyr::filter(he == 2) %>%
+  output_ti <- djanturb |>
+    hydro_events(q = discharge, datetime = time, window = 21) |>
+    dplyr::filter(he == 2) |>
     TI(ssc = discharge, datetime = time)
 
-  output_ahi <- djan %>%
-    hydro_events(q = discharge, datetime = time, window = 21) %>%
-    dplyr::filter(he == 2) %>%
+  output_ahi <- djan |>
+    hydro_events(q = discharge, datetime = time, window = 21) |>
+    dplyr::filter(he == 2) |>
     AHI(q = discharge, ssc = SS)
 
-  output_shi <- djan %>%
-    hydro_events(q = discharge, datetime = time, window = 21) %>%
-    dplyr::filter(he == 2) %>%
+  output_shi <- djan |>
+    hydro_events(q = discharge, datetime = time, window = 21) |>
+    dplyr::filter(he == 2) |>
     SHI(q = discharge, ssc = SS)
 
   expect_s3_class(output_plot, c("dygraphs", "htmlwidget"))
