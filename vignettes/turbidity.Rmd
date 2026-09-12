@@ -58,3 +58,39 @@ TI_index <- df %>%
 TI_index
 
 ```
+
+### Hydrological event parameters
+
+Start, end, and duration of each event used to go through `tsibble` and
+`feat_event`. The same numbers are a grouped summary of `time`:
+
+```{r event_params}
+event_params <- df %>%
+  group_by(he) %>%
+  summarise(
+    start = min(time),
+    end = max(time),
+    length = difftime(end, start, units = "h"),
+    .groups = "drop"
+  )
+
+event_params
+```
+
+A five-number summary of turbidity per event used to come from
+`brolgar::feat_five_num`. That is also a grouped summary:
+
+```{r ntu_summary}
+ntu_summary <- df %>%
+  group_by(he) %>%
+  summarise(
+    min = min(ntu, na.rm = TRUE),
+    q25 = stats::quantile(ntu, 0.25, na.rm = TRUE, names = FALSE),
+    median = stats::median(ntu, na.rm = TRUE),
+    q75 = stats::quantile(ntu, 0.75, na.rm = TRUE, names = FALSE),
+    max = max(ntu, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ntu_summary
+```
