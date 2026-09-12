@@ -1,7 +1,7 @@
 Type: Package
 Package: loadflux
 Title: Explore Intra-Event Suspended Sediment Dynamics
-Version: 0.0.3
+Version: 0.1.0
 Authors@R: 
     person("Anatoly", "Tsyplenkov", , "atsyplenkov@gmail.com", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0003-4144-8402"))
@@ -10,7 +10,7 @@ Description: A collection of functions created to study water discharge
     (Q) and suspended sediment concentration (SSC) relationship.
 License: MIT + file LICENSE
 URL: https://github.com/atsyplenkov/loadflux,
-    https://atsyplenkov.github.io/loadflux/
+    https://anatolii.nz/loadflux/
 BugReports: https://github.com/atsyplenkov/loadflux/issues
 Depends:
     R (>= 4.1)
@@ -20,26 +20,19 @@ Imports:
     ggplot2 (>= 3.0.0),
     lubridate,
     rlang (>= 0.2.0),
+    stats,
     tidyr,
-    tsibble (>= 0.9.0),
+    utils,
     xts,
     zoo
 Suggests:
-    brolgar,
     covr,
-    fabletools,
-    feasts,
     knitr,
-    lifecycle,
-    purrr,
     rmarkdown,
-    stats,
-    testthat (>= 3.0.0),
-    utils
-VignetteBuilder:
-    knitr
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr, rmarkdown
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.2.3
+Config/roxygen2/version: 8.0.0

@@ -64,7 +64,7 @@ AHI <- function(dataframe, q, ssc, .warn = TRUE) {
 
   # Connect max Q and last sediment sample
   min_max <- tt %>%
-    dplyr::filter(x == max(x) | y == last(y))
+    dplyr::filter(x == max(x) | y == dplyr::last(y))
 
   mm_lm <- lm(y ~ x, data = min_max)
   slope <- coef(mm_lm)[2]

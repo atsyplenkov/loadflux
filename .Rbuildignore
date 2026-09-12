@@ -9,3 +9,9 @@
 ^LICENSE\.md$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^\.scratch$
+^air\.toml$
+^jarl\.toml$
+^\.git$
+^loadflux\.Rcheck$
+^loadflux_.*\.tar\.gz$

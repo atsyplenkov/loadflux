@@ -18,9 +18,7 @@ This is an example workflow of how to perform basic turbidity analysis with `loa
 
 ```{r setup, warning=FALSE, message=FALSE}
 library(dplyr)
-library(purrr)
 library(tidyr)
-library(tsibble)
 library(loadflux)
 ```
 
@@ -51,50 +49,12 @@ Then we can calculate Turbidity Index `TI` for every hydrological event
 TI_index <- df %>% 
   group_by(he) %>% 
   nest() %>% 
-  mutate(TI = map_dbl(data, ~TI(.x, ntu, time))) %>% 
+  mutate(
+    TI = vapply(data, function(x) TI(x, ntu, time), numeric(1))
+  ) %>% 
   select(-data) %>% 
   ungroup()
 
 TI_index
 
 ```
-
-### Hydrological events parameters
-
-To summarize the hydrological events parameters an approach from `features` package can be used. For this purpose we need to transform our dataframe into `tsibble` object:
-
-```{r to_tsibble}
-library(tsibble)
-
-df_ts <- df %>% 
-  as_tsibble(key = he,
-             index = time)
-
-df_ts
-```
-
-Then we can calculate start, end and length of the every hydrological event:
-```{r feat_ev}
-library(feasts)
-
-df_ts %>% 
-  features(time,
-           feat_event)
-
-```
-
-Or with the help of `brolgar` and `feasts` packages we can calculate turbidity statistics, autocorrelation and spectral functions:
-
-```{r stats}
-library(brolgar)
-library(feasts)
-
-df_ts %>% 
-  features(ntu, feat_five_num)
-
-df_ts %>% 
-  features(ntu, c(feat_spectral,
-                  feat_acf))
-
-```
-

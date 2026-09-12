@@ -1,3 +1,9 @@
+# loadflux 0.1.0
+
+* CRAN resubmission after archival on 2023-05-19.
+* Removed `feat_event` and the `brolgar` / `fabletools` / `feasts` / `tsibble`
+  integration.
+
 # loadflux 0.0.3 _2022-11-22_
 * Minor fixes in `event_plot` function. Fixed a timezone parameter.
 
